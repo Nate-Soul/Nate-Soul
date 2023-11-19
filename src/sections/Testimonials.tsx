@@ -33,11 +33,7 @@ const TestimonialsSection = () => {
                             <p>CEO, Joe Enterprises</p>
                         </figcaption>
                     </figure>
-                    <div 
-                      className="relative inline-flex justify-center items-center h-10 w-10 bg-main-500 text-white rounded after:absolute after:-bottom-2 after:right-2 after:h-0 after:w-0 after:border-r-transparent after:border-r-[5px] after:border-l-transparent after:border-l-[5px] after:border-t-main-500 after:border-t-[10px]"
-                    >
-                      <span className="text-3xl">&apos;&apos;</span>
-                    </div>
+                    <span className="bi-chat-square-quote-fill text-5xl text-main-500"></span>
                 </div>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quisquam cum alias, consequuntur odio at veniam fugit debitis eligendi quos atque provident magnam dolore esse placeat amet aut quo unde veritatis quis modi aperiam sapiente voluptatibus voluptatum? Deleniti temporibus nemo fugiat expedita saepe id et earum a vero, eligendi rerum.

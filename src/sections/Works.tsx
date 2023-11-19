@@ -12,7 +12,7 @@ const WorksSection = () => {
             </span> <br />
             Featured Case Studies
           </h2>
-        </header>      
+        </header>
       </div>
     </section>
   )

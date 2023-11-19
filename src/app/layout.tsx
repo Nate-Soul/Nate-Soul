@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import MainHeader from '@/components/MainHeader'
 import MainFooter from '@/components/MainFooter'
 

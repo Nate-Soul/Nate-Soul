@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 
+import Socials from "../subcomponents/Socials";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-16 section">
+    <section id="contact" className="py-16">
       <header className="mb-8 text-center">
         <h2 className="text-4xl font-bold leading-snug capitalize">
           <span className="uppercase text-sm text-main-500">
@@ -34,20 +34,7 @@ const ContactSection = () => {
           </div>
           <div className="wrapper">
             <span>Follow Me</span> <br /><br />
-            <div className="flex items-center gap-4">
-              <Link href="https://linkedin.com/in/nathanael-ukpong">
-                <Image src="/assets/images/icons/square-linkedin.svg" alt="LinkedIn profile icon" height={40} width={40}/>
-              </Link>
-              <Link href="https://mobile.twitter.com/Nate_ukpong">
-                <Image src="/assets/images/icons/square-twitter.svg" alt="X handle icon" height={40} width={40}/>
-              </Link>
-              <Link href="https://github.com/Nate-Soul">
-                <Image src="/assets/images/icons/square-github.svg" alt="Github profile icon" height={40} width={40}/>
-              </Link>
-              <Link href="https://whatsapp.com/profile/">
-                <Image src="/assets/images/icons/square-whatsapp-business.svg" alt="Whatsapp business icon" height={40} width={40}/>
-              </Link>
-            </div>
+            <Socials iconSize={40} containerStyles="flex items-center gap-4"/>
           </div>
           <p>
             I look forward to hearing from you and discussing how we can collaborate to bring your digital vision to life. Whether you have a specific project in mind or simply want to explore the possibilities every conversation is a step towards turning ideas into extraordinary digital experiences. Let's connect and create something remarkable!

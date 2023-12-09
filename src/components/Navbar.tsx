@@ -1,13 +1,28 @@
+"use client";
+
+//react.js modules
+
+// next.js modules
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+// framer motion
 // import { motion } from "framer-motion";
 // import { navVariants } from "@/utils/motion";
-import Link from "next/link";
+
+//components and uis
+import ThemeToggler from "@/components/ThemeToggler";
+import Logo from "@/components/Logo";
+import MobileMenu from "./subcomponents/MobileMenu";
+import { Button } from "./ui/button";
+import { Send } from "lucide-react";
 
 
 const Navbar = () => {
 
   const navLinks = [
     {
-      url: "#hero",
+      url: "/",
       text: "Home"
     },
     {
@@ -15,7 +30,7 @@ const Navbar = () => {
       text: "About"
     },
     {
-      url: "#works",
+      url: "/projects",
       text: "Projects"
     },
     {
@@ -27,11 +42,13 @@ const Navbar = () => {
       text: "Testimonials"
     },
     {
-      url: "#contact",
+      url: "/contact",
       text: "Let's Connect"
     },
   ];
-  
+
+  const currentPage = usePathname();
+
   return (
     // <motion.nav  
     //   variants={navVariants}
@@ -39,19 +56,26 @@ const Navbar = () => {
     //   whileInView="show"
     //   className="py-4"
     // >
-    <nav className="bg-main-50 py-4 shadow shadow-main-100">
+    <nav className={`py-3 bg-inherit`}>
       <div className="container flex items-center justify-between">
-        <Link href="/" className="font-extrabold">Nate Soul</Link>
-        <ul className="flex items-center gap-6">
+        <Logo/>
+        <ul className="hidden xl:flex items-center gap-6">
           {navLinks.length > 0 && navLinks.map((navLink, i) => 
-            navLink.url !== "#contact" ? (<li key={i} className="inline-flex items-center">
+            navLink.url !== "/contact" ? (
+            <li key={i} className={`${currentPage === navLink.url ? 'text-primary' : ''} inline-flex items-center`}>
               <Link href={navLink.url}>{navLink.text}</Link>
             </li>) : (
-          <li key={i} className="inline-flex items-center bg-sec-600 text-white rounded-3xl px-4 py-2">
-            <Link href={navLink.url}>{navLink.text}</Link>
+          <li key={i}>
+            <Link href={navLink.url}>
+              <Button className="gap-x-2">{navLink.text} <Send size={15}/> </Button>
+            </Link>
           </li>)
           )}
-        </ul>      
+        </ul>
+        <ThemeToggler/>
+        <div className="flex xl:hidden">
+          <MobileMenu/>
+        </div>
       </div>
     </nav>
     // </motion.nav>

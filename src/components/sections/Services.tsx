@@ -1,7 +1,7 @@
-import Image from "next/image";
+import ServiceCard from "../subcomponents/ServiceCard";
+
 
 const ServicesSection = () => {
-
 
   const services = [
     {
@@ -32,7 +32,7 @@ const ServicesSection = () => {
       text: "Unlock the full potential of your digital presence with strategic on-page SEO. I optimize every aspect of your content to ensure visibility and ranking on search engines. Let's make your website the go-to destination for your target audience.",
     },
     {
-      id: 3,
+      id: 4,
       icon: {
         url: "/assets/images/icons/ui.svg",
         alt: "Speed + Accessibility optimization illustration",
@@ -41,7 +41,7 @@ const ServicesSection = () => {
       text: "In the digital landscape, speed and accessibility matter. I specialize in optimizing your website or application for lightning-fast performance and seamless accessibility. Reach a broader audience and enhance user satisfaction with a site that performs at its peak.",
     },
     {
-      id: 4,
+      id: 5,
       icon: {
         url: "/assets/images/icons/paint-palette.svg",
         alt: "creative logo design representation",
@@ -50,7 +50,7 @@ const ServicesSection = () => {
       text: "Your brand is more than just a logo; it's an identity. Let's craft a brand that tells your story and resonates with your audience. From logo design to overall branding strategy, I bring a creative touch to turn your passion into a brand that stands out.",
     },
     {
-      id: 5,
+      id: 6,
       icon: {
         url: "/assets/images/icons/app-development.png",
         alt: "app development icon",
@@ -70,21 +70,10 @@ const ServicesSection = () => {
           I Specialize In
         </h2>
       </header>
-      <div className="container grid grid-cols-12 justify-center content-center gap-6">
+      <div className="container grid grid-cols-12 justify-center content-center gap-4">
         {
-          services.length > 0 && services.map((service) => (
-            <div 
-            key={service.id}
-              className="col-span-4 bg-white rounded-3xl shadow p-5 flex text-center items-center justify-center flex-col gap-5" 
-            >
-              {service.icon.url && (
-                <Image src={service.icon.url} alt={service.icon.alt} height={70} width={70} />
-              )}
-              <h3 className="font-semibold text-xl">{service.name}</h3>
-              <p>
-                {service.text}
-              </p>
-            </div>
+          services.length > 0 && services.map((service, serviceIndex) => (
+            <ServiceCard service={service} key={serviceIndex}/>
           ))
         }
       </div>

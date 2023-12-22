@@ -11,22 +11,24 @@ import { usePathname } from "next/navigation";
 // import { navVariants } from "@/utils/motion";
 
 //components and uis
-import ThemeToggler from "@/components/ThemeToggler";
 import Logo from "@/components/Logo";
 import MobileMenu from "./subcomponents/MobileMenu";
 import { Button } from "./ui/button";
 import { Send } from "lucide-react";
 
+//types and interfaces
+import { navLinksType } from "@/types/types";
+
 
 const Navbar = () => {
 
-  const navLinks = [
+  const navLinks: navLinksType = [
     {
       url: "/",
       text: "Home"
     },
     {
-      url: "#about",
+      url: "/#about",
       text: "About"
     },
     {
@@ -34,11 +36,11 @@ const Navbar = () => {
       text: "Projects"
     },
     {
-      url: "#services",
+      url: "/#services",
       text: "What I do"
     },
     {
-      url: "#testimonials",
+      url: "/#testimonials",
       text: "Testimonials"
     },
     {
@@ -59,7 +61,7 @@ const Navbar = () => {
     <nav className={`py-3 bg-inherit`}>
       <div className="container flex items-center justify-between">
         <Logo/>
-        <ul className="hidden xl:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-6">
           {navLinks.length > 0 && navLinks.map((navLink, i) => 
             navLink.url !== "/contact" ? (
             <li key={i} className={`${currentPage === navLink.url ? 'text-primary' : ''} inline-flex items-center`}>
@@ -72,8 +74,7 @@ const Navbar = () => {
           </li>)
           )}
         </ul>
-        <ThemeToggler/>
-        <div className="flex xl:hidden">
+        <div className="flex md:hidden">
           <MobileMenu/>
         </div>
       </div>

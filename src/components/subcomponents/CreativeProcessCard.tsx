@@ -9,7 +9,7 @@ import { ProcessCardProps } from "@/types/interfaces";
 const CreativeProcessCard: React.FC<ProcessCardProps> = ({ process }) => {
   return (
     <Card 
-      className="col-span-12 md:col-span-6 xl:col-span-3 rounded-3xl shadow-sm shadow-main-500 text-center bg-white"
+      className="creative-process-card rounded-3xl shadow-sm text-center bg-card dark:bg-card-foreground text-foreground dark:text-background"
     >
         <CardHeader className="relative h-56">
             <Image 
@@ -17,6 +17,7 @@ const CreativeProcessCard: React.FC<ProcessCardProps> = ({ process }) => {
                 alt={process.icon.alt} 
                 className="h-full w-full object-cover rounded-3xl border-b-2 mb-4"
                 fill
+                sizes="(max-width: 768px) 80%, (max-width: 640px) 50%, 33%"
                 priority
             />
         </CardHeader>

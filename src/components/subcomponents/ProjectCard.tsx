@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Card, CardHeader } from "../ui/card";
+import { Card, CardHeader, CardContent, CardDescription, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { EyeIcon, GithubIcon, PlusCircleIcon } from "lucide-react";
 import React from "react";
@@ -11,16 +11,16 @@ import { ProjectCardProps } from "@/types/interfaces";
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <Card className="group overflow-hidden relative col-span-4">
+    <Card className="group overflow-hidden relative bg-card text-card-foreground dark:bg-card-foreground dark:text-card">
         <CardHeader className="p-0">
-            <div className="relative w-full h-[300px] flex items-center justify-center bg-blue-200">
-                <Badge className="absolute top-4 left-4 uppercase font-medium text-xs">{project.category}</Badge>
+            <div className="relative w-full h-[300px] flex items-center justify-center bg-blue-200 dark:bg-gray-900">
+                <Badge className="absolute top-4 left-4 uppercase font-medium text-xs z-10">{project.category}</Badge>
                 <Image 
                     src={project.featured_image}
                     alt={project.name} 
                     width={360} 
                     height={215} 
-                    className="shadow-2xl absolute bottom-0" 
+                    className="shadow-lg shadow-gray-400 dark:shadow-black absolute bottom-0" 
                     priority
                 />
                 <div className="flex items-center text-primary gap-x-4">
@@ -42,10 +42,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 </div>
             </div>
         </CardHeader>
-        <div className="h-full px-8 py-6 flex flex-col gap-y-2">
-            <h4 className="capitalize text-xl font-semibold">{project.name}</h4>
-            <p className="text-lg text-muted-foreground">{project.excerpt}</p>
-        </div>
+        <CardContent className="h-full px-8 py-6 flex flex-col gap-y-2">
+            <CardTitle className="md:text-xl">{project.name}</CardTitle>
+            <CardDescription className="lg:text-lg">{project.excerpt}</CardDescription>
+        </CardContent>
     </Card>
   )
 }

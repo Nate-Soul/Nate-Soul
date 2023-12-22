@@ -4,6 +4,9 @@ import Link from "next/link";
 //icons
 import { AlignJustify, Send, DownloadIcon } from "lucide-react";
 
+//types and interfaces
+import { navLinksType } from "@/types/types";
+
 //components and ui
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 import { Button } from "../ui/button";
@@ -12,7 +15,7 @@ import Socials from "./Socials";
 
 const MobileMenu = () => {
 
-  const mobileNavLinks = [
+  const mobileNavLinks: navLinksType = [
     {
       url: "/",
       text: "Home"
@@ -48,9 +51,9 @@ const MobileMenu = () => {
       <SheetTrigger asChild>
         <AlignJustify className="cursor-pointer"/>
       </SheetTrigger>
-      <SheetContent>
-        <div className="flex flex-col items-center justify-between h-full py-8">
-          <div className="flex flex-col gap-y-32 items-center">
+      <SheetContent className="bg-background dark:bg-foreground text-foreground dark:text-background">
+        <div className="flex flex-col items-center justify-between h-full py-8 overflow-y-scroll hide-scrollbar">
+          <div className="flex flex-col gap-y-16 items-center">
             <Logo/>
             <ul className="flex flex-col items-center gap-y-6" role="menu">
                 {mobileNavLinks.length > 0 && mobileNavLinks.map((mobileNavLink, index) => (
@@ -75,8 +78,8 @@ const MobileMenu = () => {
                 </li>
                 ))}
             </ul>
+            <Socials iconSize={24} containerStyles="flex gap-x-5 items-center"/>
           </div>
-          <Socials iconSize={24} containerStyles="flex gap-x-5 items-center"/>
         </div>
       </SheetContent>
     </Sheet>

@@ -4,32 +4,36 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { Send, DownloadIcon } from "lucide-react";
 
+import SectionTitle from "../subcomponents/SectionTitle"; 
+
 const AboutSection = () => {
   return (
     <section id="about" className="py-16 bg-background dark:bg-foreground text-foreground dark:text-white">
-      <div className="container flex flex-col md:flex-row items-center gap-5">
-        <figure className="about-img flex-none md:flex-1">
+      <div className="container grid lg:grid-cols-2 items-center gap-5">
+        <figure 
+          className="about-img mx-auto h-auto w-4/5 lg:h-[500px] lg:w-[500px] rounded-full border-4 border-gray-300 dark:border-primary overflow-hidden"
+        >
           <Image 
             src="/assets/images/personal/Nathanael-Ukpong.png" 
             alt="Photo of Nathanael Ukpong" 
             width={500} 
             height={500} 
-            className="rounded-full object-contain border-4 border-gray-300 dark:border-primary"
+            className="w-full h-auto object-contain"
           />
         </figure>
-        <div className="about-text flex-none md:flex-1">
-          <h2 className="text-3xl font-bold leading-snug mb-8 capitalize">
-            <span className="uppercase text-sm text-main-500">
-              About Me
-            </span> <br />
-            Why You Should choose me <br /> for your next project?
-          </h2>
-          <div className="flex flex-col gap-3">
+        <div className="about-text">
+          <SectionTitle 
+            containerStyles="text-center lg:text-left mb-8"
+            title="About Me" 
+            extendedTitle1={`Why You Should Choose Me`} 
+            extendedTitle2="For Your Next Project"
+          />
+          <div className="flex flex-col gap-3 text-justify">
             <p>
-              I am a dedicated full stack software developer with a passion for translating innovative concepts into cutting-edge digital products. My expertise lies not only in the realm of websites and apps but in architecting user-centric solutions that blend business logic and design principles.
+              I am a dedicated full stack software developer with a passion for translating ideas and innovative concepts into cutting-edge digital products. My expertise lies not only in the realm of websites and apps but in architecting user-centric solutions that blend business logic and design principles.
             </p>
             <p>
-              With a focus on elevating efficiency, I bring a robust skill set to the table, ensuring that every project meets the highest standards of functionality and user experience. I&apos;m proficient in JavaScript, Python &amp; PHP.
+              I bring a robust skill set to the table, ensuring that every project meets the highest standards of functionality and user experience. I&apos;m proficient in JavaScript, Python &amp; PHP.
             </p>
             <p>
               I've also honed my project management skills through a fundamental course, embracing agile methodologies and scrum practices. My strengths include an unwavering attention to detail, effective communication, and analytical prowess.

@@ -3,47 +3,52 @@
 import CountUp from "react-countup";
 import { Smile, CheckCircle, Calendar } from "lucide-react";
 
+import { statsType } from "@/types/types";
+// import { statData } from "@/utils/data";
+
 const Stats = () => {
-  const stats = [
+
+  const statData: statsType = [
     {
       id: 1,
       name: "Satisfied Clients",
       amount: 5,
-      icon: <Smile className="text-primary" size={30} />,
+      icon: <Smile size={30} />,
     },
     {
       id: 2,
       name: "Completed Projects",
       amount: 10,
-      icon: <CheckCircle className="text-primary" size={30} />,
+      icon: <CheckCircle size={30} />,
     },
     {
       id: 3,
       name: "Experience Years",
       amount: 3,
-      icon: <Calendar className="text-primary" size={30} />,
+      icon: <Calendar size={30} />,
     },
-  ];
+];
+  
 
   return (
-    <section id="stats" className="py-6 bg-white dark:bg-blue-200">
+    <section id="stats" className="py-6 bg-background dark:bg-foreground text-foreground dark:text-background">
       <div className="container">
-        <div className="grid grid-cols-12 shadow shadow-primary bg-background dark:bg-foreground rounded-3xl p-4">
-          {stats.length > 0 &&
-            stats.map((stat) => (
+        <div className="grid grid-cols-12 shadow shadow-primary inherit rounded-3xl p-4">
+          {statData.length > 0 &&
+            statData.map((statItem) => (
               <div
-                key={stat.id}
-                className="col-span-12 md:col-span-4 flex gap-4 items-center justify-center even:border-x-2 even:border-secondary"
+                key={statItem.id}
+                className="col-span-12 py-6 md:py-3 md:col-span-4 flex gap-4 items-center justify-center even:border-y dark:even:border-y-primary md:even:border-y-0 md:even:border-x-2 md:dark:even:border-x-2-primary"
               >
-                {stat.icon}
+                {statItem.icon}
                 <div className="flex flex-col justify-center items-center">
-                  <CountUp
-                    end={stat.amount}
+                <CountUp
+                    end={statItem.amount}
                     delay={1}
                     duration={4}
                     className="text-xl font-bold text-primary"
                   />
-                  <span className="font-medium text-foreground dark:text-white">{stat.name}</span>
+                  <span className="font-medium text-inherit">{statItem.name}</span>
                 </div>
               </div>
             ))}

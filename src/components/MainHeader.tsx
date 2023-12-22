@@ -14,9 +14,9 @@ const MainHeader = () => {
   return (
     <header className={`${
       windowScrollPos 
-        ? 'shadow-lg bg-accent bg-opacity-60 '
-        : 'bg-transparent'
-      } transition-all z-40 sticky top-0`}>
+        ? 'shadow bg-accent bg-opacity-10'
+        : 'bg-background'
+      } transition-all z-40 sticky top-0 dark:bg-foreground dark:text-white`}>
         <Navbar/>      
     </header>
   )

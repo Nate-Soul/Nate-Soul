@@ -11,7 +11,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   return (
     <Card 
       key={service.id}
-      className="col-span-4 bg-white text-center flex flex-col gap-y-4 items-center justify-center " 
+      className="service-card text-center flex flex-col gap-y-4 items-center justify-center dark:bg-card-foreground dark:text-background" 
     >
       {service.icon.url && (
       <CardHeader>
@@ -20,7 +20,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
       )}
       <CardContent className="flex flex-col gap-y-4">
         <CardTitle>{service.name}</CardTitle>
-        <CardDescription className="text-lg">
+        <CardDescription className="text-sm sm:text-base lg:text-lg">
           {service.text}
         </CardDescription>
       </CardContent>

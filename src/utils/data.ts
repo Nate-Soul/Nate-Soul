@@ -33,7 +33,7 @@ export const projectData: projectsType = [
     link: "http://capitalorthoindia.com",
     github: "",
     category: "web",
-    tags: ["catalogless e-commerce website", "brochure", "Tour booking",],
+    tags: ["catalogless", "e-commerce", "brochure", "Tour booking",],
     technologies: ["Tailwind CSS", "CSS3", "HTML5", "jQuery", "JavaScript", "PHP", "Wordpress", "WooCommerce"],
     featured_image: "/assets/images/portfolio/capital-stallion.jpg"
   },

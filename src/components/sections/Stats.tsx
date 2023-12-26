@@ -33,7 +33,7 @@ const Stats = () => {
   return (
     <section id="stats" className="py-6 bg-background dark:bg-foreground text-foreground dark:text-background">
       <div className="container">
-        <div className="grid grid-cols-12 shadow shadow-primary inherit rounded-3xl p-4">
+        <div className="grid grid-cols-12 shadow dark:shadow-primary text-inherit rounded-3xl p-4">
           {statData.length > 0 &&
             statData.map((statItem) => (
               <div

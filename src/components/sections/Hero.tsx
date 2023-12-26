@@ -14,7 +14,7 @@ import MyImg from "../../../public/assets/images/personal/nathanael-ukpong-trans
 
 const Hero = () => {
   return (
-    <section id="hero" className="py-16 lg:py-4 relative bg-blue-100 text-foreground dark:bg-foreground dark:text-white">
+    <section id="hero" className="py-16 lg:py-4 relative bg-hero bg-no-repeat bg-center bg-fixed bg-cover dark:bg-hero-dark dark:text-background">
       {/* <motion.div
         className="container"
         variants={staggerContainer}
@@ -23,8 +23,9 @@ const Hero = () => {
         viewport={{ once: false, amount: 0.25 }}
       >
       </motion.div> */}
+      <div className="absolute top-0 left-0 w-full h-full bg-accent/70 dark:bg-foreground/90"></div>
       <div className="container flex items-center justify-between gap-x-8">
-        <div className="hero-text flex flex-col gap-8 text-center sm:text-left">
+        <div className="hero-text flex flex-col gap-8 text-center sm:text-left z-10">
           <h1 className="font-bold text-4xl xl:text-5xl capitalize leading-snug">
             <span className="text-main-100 text-2xl">Hola, I&apos;m Nathanael.</span> <br />
             Full Stack Developer || AI Enthusiast.

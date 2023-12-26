@@ -1,4 +1,5 @@
 //import next modules
+import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -20,7 +21,13 @@ async function getData(slug: string) {
  return projectData.filter((projectitem) => projectitem.slug === slug) || notFound;
 }
 
-export async function generateMetadata({params}) {
+type Props = {
+  params: {
+    slug: string
+  }
+}
+
+export async function generateMetadata ({ params }: Props): Promise<Metadata> {
   const project = await getData(params.slug);
   return {
     title: project[0].name,
@@ -29,7 +36,7 @@ export async function generateMetadata({params}) {
 }
 
 
-const ProjectDetail = async ({ params }) => {
+const ProjectDetail = async ({ params }: Props) => {
 
   const projectDataItem = await getData(params.slug);
 
@@ -82,7 +89,6 @@ const ProjectDetail = async ({ params }) => {
             </div>
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-semibold">Technologies: </span>
-              {/* for each project tag */}
               { projectDataItem[0].technologies.map((tech, techIndex) => (
                 <Badge 
                   className="capitalize font-normal dark:text-background" 

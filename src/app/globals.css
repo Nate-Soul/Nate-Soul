@@ -5,33 +5,33 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 330 4% 9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 330 4% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
+    --popover-foreground: 330 4% 9%;
+    --primary: 5 100% 60%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
+    --secondary: 0 100% 98%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
+    --muted: 0 100% 98%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
+    --accent: 0 100% 98%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 5 100% 60%;
     --radius: 0.5rem;
   }
 
   [data-theme='dark'] {
-    --background: 222.2 84% 4.9%;
+    --background: 330 4% 9%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 330 4% 9%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 330 4% 9%;
     --popover-foreground: 210 40% 98%;
     --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
@@ -48,7 +48,8 @@
     --ring: 224.3 76.3% 48%;
   }
 }
- 
+
+
 @layer base {
   * {
     @apply border-border;
@@ -71,13 +72,15 @@
 }
 
 .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
-  @apply dark:bg-background dark:opacity-100
+  @apply dark:bg-background dark:opacity-100;
 }
-
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply bg-primary;
+}
 .project-tab-trigger[data-state='active'] {
-  @apply bg-primary text-background
+  @apply bg-primary text-background;
 }
 
 .form-control-theme {
-  @apply bg-background dark:bg-gray-700 text-foreground dark:text-background
+  @apply bg-background dark:bg-gray-700 text-foreground dark:text-background;
 }

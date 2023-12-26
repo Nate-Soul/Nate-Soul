@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <Card className="group overflow-hidden relative bg-card text-card-foreground dark:bg-card-foreground dark:text-card">
       <CardHeader className="p-0">
-        <div className="relative w-full h-[300px] flex items-center justify-center bg-blue-200 dark:bg-gray-900">
+        <div className="relative w-full h-[300px] flex items-center justify-center bg-accent dark:bg-gray-900">
           <Badge className="absolute top-4 left-4 uppercase font-medium text-xs z-10">
             {project.category}
           </Badge>

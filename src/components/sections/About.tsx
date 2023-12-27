@@ -52,7 +52,7 @@ const AboutSection = () => {
                 </Button>
               </Link>
               <Link 
-                href="/personal/nathanael-ukpong.png"
+                href="/assets/docs/nathanael-ukpong-cv.pdf"
                 className="capitalize"
               >
                 <Button variant="secondary" className="gap-x-2">

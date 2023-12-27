@@ -41,7 +41,7 @@ const MobileMenu = () => {
       text: "Let's Connect"
     },
     {
-      url: "/assets/images/personal/nathanael-ukpong.png",
+      url: "/assets/docs/nathanael-ukpong-cv.pdf",
       text: "Download Resume"
     }
   ];

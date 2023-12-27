@@ -31,8 +31,8 @@ const TestimonialsSection = () => {
         <SectionTitle 
           containerStyles="col-span-full sm:col-span-4 text-center sm:text-left" 
           title="Testimonials"
-          extendedTitle1="What my"
-          extendedTitle2="clients are saying"
+          extendedTitle="What my <br/> clients are saying"
+          page={false}
         />
         <div className="col-span-full sm:col-span-8">
           <div className="swiper-wrapper py-6 relative">

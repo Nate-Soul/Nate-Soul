@@ -55,10 +55,11 @@ export type projectsType = {
     featured_image: string;
 }[];
 
+
 export type sectionTitleType = {
     containerStyles?: string;
     title: string;
-    extendedTitle1: string;
-    extendedTitle2?: string;
+    extendedTitle: string;
     text?: string;
+    page: boolean;
 };

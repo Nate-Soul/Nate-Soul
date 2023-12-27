@@ -15,10 +15,11 @@ const ContactSection = () => {
           <SectionTitle
             containerStyles="flex flex-col justify-start md:justify-center"
             title="Contact Me"
-            extendedTitle1="Let's Have A Coffee"
+            extendedTitle="Let's Have A Coffee"
             text="Whether you're ready to kickstart a new project or just want to connect, I&apos;m here to make it easy. Feel free to reach out through any of the channels below:"
+            page={true}
           />
-          <div className="bg-blob-1-dark dark:bg-blob-1-light bg-contain bg-top bg-no-repeat w-full hidden md:flex"></div>
+          <div className="bg-contact-illustration bg-contain bg-top bg-no-repeat w-full hidden md:flex"></div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="flex flex-col gap-5">

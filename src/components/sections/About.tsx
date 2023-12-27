@@ -25,8 +25,8 @@ const AboutSection = () => {
           <SectionTitle 
             containerStyles="text-center lg:text-left mb-8"
             title="About Me" 
-            extendedTitle1={`Why You Should Choose Me`} 
-            extendedTitle2="For Your Next Project"
+            extendedTitle={`Why You Should Choose Me For Your Next Project`}
+            page={false}
           />
           <div className="flex flex-col gap-3 text-justify">
             <p>

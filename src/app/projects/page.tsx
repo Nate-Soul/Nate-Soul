@@ -1,4 +1,5 @@
 "use client";
+// import { Metadata } from "next";
 
 import SectionTitle from "@/components/subcomponents/SectionTitle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -6,6 +7,13 @@ import ProjectCard from "@/components/subcomponents/ProjectCard";
 
 import { projectData } from "@/utils/data";
 import { useState } from "react";
+
+
+// export const metadata: Metadata = {
+//   title: 'My Projects | Nathanael Ukpong',
+//   description: 'Explore a wide range of my web development projects with various tech stacks',
+//   keywords: ["case studies", "projects", "websites", "web development", "branding"],
+// };
 
 const Projects = () => {
 
@@ -29,7 +37,8 @@ const Projects = () => {
         <SectionTitle 
           containerStyles="mb-8 text-center" 
           title="My Projects" 
-          extendedTitle1="Featured Case Studies"
+          extendedTitle="Featured Case Studies"
+          page={true}
         />
         {
           filteredProjects.length > 0 ? (

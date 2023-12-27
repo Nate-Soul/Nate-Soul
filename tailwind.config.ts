@@ -79,10 +79,10 @@ const config: Config = {
       backgroundImage: {
         "hero": "url(/assets/images/bg/hero.svg)",
         "hero-dark": "url(/assets/images/bg/hero-dark.jpg)",
-        "blob-1-dark": "url(/assets/images/bg/blob-1-dark.svg)",
         "blob-1-light": "url(/assets/images/bg/blob-1-light.svg)",
-        "blob-2-dark": "url(/assets/images/bg/blob-2-dark.svg)",
-        "gradient-1": "bg-[linear--gradient(0deg,_rgba(103,58,183,1)_0%,_rgba(55,81,133,0.4))]"
+        "blob-1-dark": "url(/assets/images/bg/blob-1-dark.svg)",
+        "contact-illustration": "url(/assets/images/icons/customer-service-reps.png)",
+        // "gradient-1": "bg-[linear--gradient(0deg,_rgba(103,58,183,1)_0%,_rgba(55,81,133,0.4))]"
       }
     },
   },

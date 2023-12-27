@@ -23,7 +23,7 @@ const Hero = () => {
         viewport={{ once: false, amount: 0.25 }}
       >
       </motion.div> */}
-      <div className="absolute top-0 left-0 w-full h-full bg-accent/70 dark:bg-foreground/90"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-accent/20 dark:bg-foreground/90"></div>
       <div className="container flex items-center justify-between gap-x-8">
         <div className="hero-text flex flex-col gap-8 text-center sm:text-left z-10">
           <h1 className="font-bold text-4xl xl:text-5xl capitalize leading-snug">

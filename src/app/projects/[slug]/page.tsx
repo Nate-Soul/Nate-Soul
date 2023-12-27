@@ -30,8 +30,9 @@ type Props = {
 export async function generateMetadata ({ params }: Props): Promise<Metadata> {
   const project = await getData(params.slug);
   return {
-    title: project[0].name,
+    title: `${project[0].name}'s Project Case Study`,
     description: project[0].excerpt,
+    keywords: project[0].tags,
   }
 }
 
@@ -65,21 +66,22 @@ const ProjectDetail = async ({ params }: Props) => {
             <SectionTitle 
               containerStyles="text-center md:text-left" 
               title="Case Study for" 
-              extendedTitle1={projectDataItem[0].name}
+              extendedTitle={projectDataItem[0].name}
               text={projectDataItem[0].excerpt}
+              page={true}
             />
             <div className="flex items-center gap-x-2">
               <span className="font-semibold">
                 Category:
               </span>
-              <Badge variant="outline" className="uppercase font-thin dark:text-background">{projectDataItem[0].category}</Badge>
+              <Badge variant="outline" className="uppercase font-normal dark:text-background">{projectDataItem[0].category}</Badge>
             </div>
             <div className="flex flex-wrap items-center gap-2">
               {/* for each project tag */}
               <span className="font-semibold">Tags:</span>
               { projectDataItem[0].tags.map((tag, tagindex) => (
                 <Badge 
-                  className="capitalize font-thin dark:text-background" 
+                  className="capitalize font-normal dark:text-background" 
                   variant="outline"
                   key={tagindex}
                 >

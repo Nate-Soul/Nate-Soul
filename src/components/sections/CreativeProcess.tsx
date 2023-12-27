@@ -11,7 +11,8 @@ const CreativeProcess = () => {
         <SectionTitle 
           containerStyles="mb-8 text-center" 
           title="My Creative Process" 
-          extendedTitle1="How I Put the pieces together"
+          extendedTitle="How I Put the pieces together"
+          page={false}
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {processData.length > 0 && processData.map((processItem, processItemIndex) => (

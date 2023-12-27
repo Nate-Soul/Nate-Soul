@@ -11,7 +11,8 @@ const ServicesSection = () => {
       <SectionTitle
         containerStyles="mb-8 text-center"
         title="My Services"
-        extendedTitle1="I Specialize In"
+        extendedTitle="I Specialize In"
+        page={false}
       />
       <div className="container grid sm:grid-cols-2 lg:grid-cols-3 justify-center content-center gap-4">
         {

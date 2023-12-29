@@ -58,7 +58,7 @@ const Navbar = () => {
     //   whileInView="show"
     //   className="py-4"
     // >
-    <nav className={`py-3 bg-inherit`}>
+    <nav className={`py-4 bg-inherit`}>
       <div className="container flex items-center justify-between">
         <Logo/>
         <ul className="hidden md:flex items-center gap-6">

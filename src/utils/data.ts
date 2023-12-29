@@ -5,35 +5,66 @@ export const projectData: projectsType = [
     id: 1,
     name: "Boot5",
     slug: "boot-5",
-    excerpt: "Minimal & clean design for project one and two excluding three",
+    excerpt: "Modern Landing Page UI Powered by Bootstrap 5 and CSS",
+    features: [
+      "Efficient information architecture",
+      "Intuitive user interface using Bootstrap 5",
+      "CSS for enhanced styling and responsiveness",
+      "JavaScript-powered contact form",
+      "Error handling in form submissions",
+      "Email functionality for seamless communication"
+    ],
+    case_study: "Boot5, a modern landing page for a learning management system, was a hobby project with a focus on efficient information architecture and an intuitive user interface. Bootstrap 5 and CSS were leveraged to create a sleek and responsive design. The integration of JavaScript powered the contact form, providing error handling for form submissions and seamless email functionality. The result is a modern and user-friendly landing page that not only showcases the capabilities of Bootstrap 5 but also ensures a smooth and interactive experience for visitors.",  
     link: "https://boot5.netlify.app",
     github: "https://github.com/boot-5-project",
     category: "web",
-    tags: ["learning management system", "landing page"],
-    technologies: ["bootstrap5", "css3"],
+    tags: ["learning management system", "landing page", "Bootstrap 5", "CSS", "JavaScript", "user interface", "contact form"],
+    technologies: ["HTML5", "CSS3", "Boostrap5", "JavaScript"],
     featured_image: "/assets/images/portfolio/boot5.jpg"
   },
   {
     id: 2,
     name: "Sphenyx Digitals",
     slug: "sphenyx-digitals",
-    excerpt: "Minimal & clean design for project one and two excluding three",
+    excerpt: "Crafting a Digital Hub for Sphenyx Digitals' Diverse Services",
+    features: [
+      "Responsive one-page design",
+      "Intuitive UI/UX for seamless navigation",
+      "Dynamic portfolio showcasing with featured case studies",
+      "Transparent pricing presentation for each service",
+      "Secure payment/ordering system integration",
+      "Compelling storytelling section",
+      "Team showcase for a personal touch",
+      "Client success stories for social proof",
+      "Efficient contact form for client inquiries"
+    ],
+    case_study: "Sphenyx Digitals sought a digital hub that would not only reflect their diverse services but also align with their business goals. Our solution was a sleek, one-page website offering a seamless user experience. The dynamic portfolio section beautifully showcases their work through featured case studies, providing potential clients with a comprehensive view of their capabilities. Transparent pricing for each service ensures clarity, and our integrated secure payment system streamlines the client's journey from exploration to transaction. The storytelling section humanizes the brand, offering insights into Sphenyx Digitals' journey and values. The team showcase and client success stories provide social proof, building trust with visitors. The efficient contact form serves as a direct channel for client inquiries, facilitating seamless communication. The result is a digital presence that not only attracts potential clients but also nurtures existing relationships.",
     link: "https://sphenyx.netlify.app",
     github: "",
     category: "web",
-    tags: ["corporate website", "landing page", "digital agency", "one page website"],
-    technologies: ["bootstrap5", "css3", "html5", "jQuery", "JavaScript"],
+    tags:  ["web design", "web development", "UI/UX", "digital marketing", "brand identity", "cybersecurity", "photography", "videography", "landing page", "One page website"],
+    technologies: ["Bootstrap5", "CSS3", "HTML5", "jQuery", "JavaScript"],
     featured_image: "/assets/images/portfolio/sphenyx.png"
   },
   {
     id: 8,
     name: "Capital Stallion",
     slug: "capital-stallion",
-    excerpt: "Minimal & clean design for project one and two excluding three",
+    excerpt: "Redesign For A Cataglossless WordPress Solution",
+    features: [
+      "Custom WordPress theme design",
+      "Catalog showcasing hospital equipment",
+      "About us and company history section",
+      "Certifications and client reviews display",
+      "Quotation request form for machineries",
+      "Booking form for manufacturing plant tours",
+      "Customer service inquiry form"
+    ],
+    case_study: "Capital Stallion, previously operating under 'oriensmedical.com,' sought a website overhaul for their hospital equipment manufacturing and distribution business. The challenge was to maintain and extend existing functionalities while improving design and usability. Our solution involved crafting a cataglossless custom WordPress theme. The catalog section elegantly showcases their diverse range of hospital equipment. The 'About Us' and company history sections provide insights into their background. Certifications and client reviews instill trust and credibility. Specific forms, including a quotation request form, a tour booking form for manufacturing plants, and a customer service inquiry form, enhance user engagement and streamline communication. The result is a well-designed, user-friendly website that not only preserves but also elevates the functionality of Capital Stallion's online presence.",
     link: "http://capitalorthoindia.com",
     github: "",
     category: "web",
-    tags: ["catalogless", "e-commerce", "brochure", "Tour booking",],
+    tags: ["website redesign", "WordPress", "catalog", "hospital equipment", "user-friendly", "custom theme", "customer service"],
     technologies: ["Tailwind CSS", "CSS3", "HTML5", "jQuery", "JavaScript", "PHP", "Wordpress", "WooCommerce"],
     featured_image: "/assets/images/portfolio/capital-stallion.jpg"
   },
@@ -41,11 +72,23 @@ export const projectData: projectsType = [
     id: 4,
     name: "Sphene Reserves",
     slug: "sphene-reserves",
-    excerpt: "Minimal & clean design for project one and two excluding three",
+    excerpt: "Seamless Online Booking for pre-trip accomodations",
+    features: [
+      "User-friendly online booking platform",
+      "Extensive lodging options (hotels, resorts, vacation rentals)",
+      "Budget and preference customization",
+      "Secure and efficient payment system",
+      "Real-time availability updates",
+      "Intuitive user profiles for personalized experiences",
+      "Instant booking confirmations",
+      "Detailed booking history tracking",
+      "Responsive customer support"
+    ],
+    case_study: "Sphene Reserves aimed to revolutionize travel planning by providing a hassle-free platform for clients to secure lodging in advance. Our solution delivered a user-friendly online booking system with an extensive array of lodging options, allowing travelers to align their accommodation with budget and preferences seamlessly. The integration of a secure payment system ensures a smooth transaction process. Real-time availability updates and instant booking confirmations enhance the user experience. User profiles offer a personalized touch, allowing clients to track detailed booking history and tailor future experiences. Responsive customer support further ensures a reliable and enjoyable pre-trip experience, solidifying Sphene Reserves as the go-to choice for convenient lodging bookings.",
     link: "https://sphenereserves.netlify.app",
     github: "https://github.com/Nate-Soul/sphene-reserves.git",
     category: "web",
-    tags: ["traveling and booking website", "Tour booking",],
+    tags: ["online booking", "travel agency", "lodging", "user-friendly", "budget customization", "secure payment", "customer support"],
     technologies: ["Tailwind CSS", "CSS3", "HTML5", "JavaScript", "React.js"],
     featured_image: "/assets/images/portfolio/sphene-reserves.jpg"
   },
@@ -53,23 +96,43 @@ export const projectData: projectsType = [
     id: 5,
     name: "Sphene Qwizines",
     slug: "sphene-qwizines",
-    excerpt: "Minimal & clean design for project one and two excluding three",
+    excerpt: "Seamless food online ordering and efficient delivery system",
+    features: [
+      "Intuitive and user-friendly interface",
+      "Online food ordering system",
+      "Authentic Nigerian cuisines selection",
+      "Global accessibility for orders",
+      "Efficient delivery options worldwide",
+      "Secure payment processing",
+      "Real-time order tracking",
+      "User accounts for personalized experiences"
+    ],
+    case_study: "Sphene Qwizines aimed to connect Nigerian food enthusiasts worldwide with authentic cuisines from the comfort of their homes. Our solution involved creating an intuitive and user-friendly online food ordering system. Users can explore a diverse selection of authentic Nigerian cuisines, placing orders with global accessibility. Efficient delivery options were prioritized to bridge the gap between enthusiasts and their favorite dishes. Secure payment processing and real-time order tracking enhance the user experience. User accounts were implemented for personalized interactions, ensuring a seamless journey from order placement to delivery. Sphene Qwizines now stands as a platform that not only celebrates Nigerian cuisines but also provides a convenient and accessible way for people worldwide to enjoy them.",
     link: "https://sphene-qwizines.vercel.app",
     github: "https://github.com/Nate-Soul/sphene-qwizines-fe.git",
     category: "web",
-    tags: ["online food website", "Table Reservation", "Food ordering"],
+    tags: ["online food ordering", "Table Reservation", "Nigerian cuisines", "global accessibility", "delivery options", "user-friendly interface","secure payment", "real-time tracking", "personalized experiences"],
     technologies: ["Tailwind CSS", "CSS3", "HTML5", "JavaScript", "React.js", "Next.js"],
     featured_image: "/assets/images/portfolio/sphene-qwizines.jpg"
   },
   {
     id: 6,
-    name: "BlazeSKills Learning",
-    slug: "blazeskills-learning",
-    excerpt: "Minimal & clean design for project one and two excluding three",
-    link: "https://trainings.blazeskills.com",
+    name: "BlazeSKills Inc",
+    slug: "blazeskills-inc",
+    excerpt: "Revamped Brochure and Training Websites For BlazeSkills Inc",
+    features: [
+      "Comprehensive website analysis using industry-approved tools",
+      "Revamp of both brochure and training websites",
+      "Optimization for semantics and overall site structure",
+      "On-page SEO enhancements",
+      "Alignment with brand guidelines for color and font usage",
+      "User-friendly and mobile-responsive interface"
+    ],
+    case_study: "Blazeskills Inc, a global IT leader, entrusted us with revamping both their brochure website (www.blazeskills.com) and their training website (trainings.blazeskills.com). Our approach involved a comprehensive analysis using industry-approved tools, which served as reference points for optimization. Semantics, overall site structure, and on-page SEO were enhanced to elevate their online presence. Aligning with brand guidelines, we corrected color combinations and fonts usage, ensuring a cohesive visual identity. The result is user-friendly, mobile-responsive websites that not only showcase Blazeskills Inc's IT prowess but also provide an enhanced experience for visitors.",
+    link: "https://blazeskills.com",
     github: "",
     category: "web",
-    tags: ["LMS", "learning management portal", "online learning"],
+    tags: ["online food ordering", "Nigerian cuisines", "global accessibility", "delivery options", "user-friendly interface", "secure payment", "real-time tracking", "personalized experiences"],
     technologies: ["CSS3", "HTML5", "JavaScript", "PHP"],
     featured_image: "/assets/images/portfolio/blazeskills-learning.jpg"
   },
@@ -77,11 +140,20 @@ export const projectData: projectsType = [
     id: 7,
     name: "Quetas Couture",
     slug: "quetas-couture",
-    excerpt: "Brand identity design for fashion design house",
+    excerpt: "A Unique Brand Identity Reflecting Quality and Superiority",
+    features: [
+      "Strategic name development - Quetas Couture",
+      "Distinctive brand colors and palettes",
+      "Typography guidelines for a consistent look",
+      "Logo design reflecting quality and uniqueness",
+      "Brand guidelines for cohesive visual communication",
+      "Customized assets to set them apart"
+    ],
+    case_study: "Quetas Couture, a fashion house committed to quality and superiority, sought a brand identity that truly embodied these values. Our solution involved strategic name development, resulting in 'Quetas Couture,' a name that resonates with sophistication. Distinctive brand colors and palettes were carefully selected to convey a sense of uniqueness and excellence. Typography guidelines were established for a consistent and cohesive visual identity. The logo, meticulously designed, reflects the brand's commitment to quality and stands out in the competitive fashion landscape. Comprehensive brand guidelines were created, ensuring a unified and impactful visual communication strategy. Customized assets further set Quetas Couture apart, creating a brand identity that not only aligns with their values but also establishes a memorable and distinguished presence.",
     link: "https://drive.google.com/project/quetas-couture",
     github: "",
     category: "brand",
-    tags: ["Fashion house", "Couture", "Fashion deign", "Logo", "branding"],
+    tags: ["brand identity", "fashion house", "quality", "superiority", "logo design", "brand colors", "typography", "brand guidelines"],
     technologies: ["Corel Draw", "PhotoShop"],
     featured_image: "/assets/images/portfolio/quetas-couture-logo-design.jpg"
   },
@@ -90,6 +162,16 @@ export const projectData: projectsType = [
     name: "Optimum Seab",
     slug: "optimum-seab",
     excerpt: "Brand identity design for petroleum marketing company",
+    features: [
+      "Comprehensive brand strategy realignment",
+      "Mission and vision statement refinement",
+      "Target audience analysis",
+      "Distinctive logo design reflecting petroleum industry",
+      "Revised brand colors and visual elements",
+      "Brand messaging consistency across platforms",
+      "Marketing collateral redesign"
+    ],
+    case_study: "Optimum Seab, an independent distributor of petroleum products, recognized the need for a brand transformation to better align with their services, mission, and vision. Our solution involved a comprehensive realignment of their brand strategy. The mission and vision statements were refined to articulate their core values effectively. Through a detailed analysis of their target audience, a distinctive logo design was crafted to resonate with the petroleum industry. Revised brand colors and visual elements were introduced for a more cohesive and impactful brand presence. Consistency in brand messaging across various platforms was emphasized to build a strong brand identity. The redesign extended to marketing collateral, ensuring a unified and compelling representation. The result is an Optimum Seab brand that not only reflects their core values but also resonates effectively with their target audience.",
     link: "https://drive.google.com/project/optimum-seab",
     github: "",
     category: "brand",
@@ -97,6 +179,28 @@ export const projectData: projectsType = [
     technologies: ["Corel Draw", "PhotoShop"],
     featured_image: "/assets/images/portfolio/optimum-seab-logo-design.jpg"
   },
+  {
+    id: 9,
+    name: "Metro Cleaning Agency",
+    slug: "metro-cleaning-agency",
+    excerpt: "Eco-Friendly brand identity for professional cleaning agency",
+    features: [
+      "Integration of cleaning tools in brand identity",
+      "Distinctive logo reflecting cleanliness and efficiency",
+      "Eco-friendly color palette and design elements",
+      "Custom typography for a unique and recognizable look",
+      "Brand messaging highlighting wide cleaning solutions",
+      "Consistent visual identity across platforms",
+      "Incorporation of eco-friendly values"
+    ],
+    case_study: "Metro Cleaning Agency, known for their diverse cleaning solutions, sought a brand identity that spoke their language and emphasized their commitment to excellence. Our solution involved integrating actual cleaning tools into the brand identity, creating a distinctive logo that reflects cleanliness and efficiency. An eco-friendly color palette and design elements were carefully selected to align with their values. Custom typography was crafted for a unique and recognizable look. Brand messaging highlighted their wide range of cleaning solutions, establishing a strong identity in the cleaning industry. Consistency in visual identity across platforms ensured a cohesive and memorable brand presence. The incorporation of eco-friendly values further sets Metro Cleaning Agency apart, solidifying their commitment to sustainable practices.",
+    link: "",
+    github: "",
+    category: "brand",
+    tags: ["cleaning agency", "brand identity", "logo design", "eco-friendly", "visual identity", "cleaning solutions","custom typography"],
+    technologies: ["PhotoShop", "CorelDraw"],
+    featured_image: "/assets/images/portfolio/metro-cleaning-agency.jpg"
+  },  
 ];
 
 export const serviceData: servicesType = [
@@ -196,28 +300,39 @@ export const processData: processesType = [
 ];
 
 export  const testimonialData: testimonialsType = [
-    {
-      id: 1,
-      name: "John Doe",
-      avatarUrl: "/assets/images/testimonees/avatar.jpg",
-      role: "CEO",
-      company: "Frivolous Ventures",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quisquam cum alias, consequuntur odio at veniam fugit debitis eligendi quos atque provident magnam dolore esse placeat amet aut quo unde veritatis quis modi aperiam sapiente voluptatibus voluptatum? Deleniti temporibus nemo fugiat expedita saepe id et earum a vero, eligendi rerum."
-    },
-    {
-      id: 2,
-      name: "Jane Doe",
-      avatarUrl: "/assets/images/testimonees/avatar.jpg",
-      role: "CEO",
-      company: "Frivolous Inc",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quisquam cum alias, consequuntur odio at veniam fugit debitis eligendi quos atque provident magnam dolore esse placeat amet aut quo unde veritatis quis modi aperiam sapiente voluptatibus voluptatum? Deleniti temporibus nemo fugiat expedita saepe id et earum a vero, eligendi rerum."
-    },
-    {
-      id: 3,
-      name: "George Doe",
-      avatarUrl: "/assets/images/testimonees/avatar.jpg",
-      role: "Deisgner",
-      company: "Capital Stallion HQ",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quisquam cum alias, consequuntur odio at veniam fugit debitis eligendi quos atque provident magnam dolore esse placeat amet aut quo unde veritatis quis modi aperiam sapiente voluptatibus voluptatum? Deleniti temporibus nemo fugiat expedita saepe id et earum a vero, eligendi rerum."
-    },
+  {
+  id: 1,
+  name: "Ofofon-ono Ezekiel",
+  role: "CEO & Co-founder",
+  company: "Sphenyx Digitals",
+  review: "Working with Nathanael was a game-changer! Our new website perfectly aligns with our business goals. It's a showcase of creativity and functionality. Highly recommended!"  
+  },
+  {
+    id: 2,
+    name: "Asuquo Jacobs",
+    role: "CEO & Founder",
+    company: "Quetas Couture",
+    review: "Quetas Couture's new brand identity is a masterpiece. It perfectly reflects our values of quality and uniqueness. A true standout in the fashion industry!"
+  },
+  {
+    id: 3,
+    name: "Samuel Enwenwen",
+    role: "CEO",
+    company: "Optimum Seab",
+    review: "The brand transformation was a strategic move. Our new identity aligns seamlessly with our mission and resonates effectively with our audience. Fantastic job!"
+  },
+  {
+    id: 4,
+    name: "Ekudomo Bassey",
+    role: "CEO",
+    company: "Metro Cleaning Agency",
+    review: "Metro Cleaning Agency's brand identity is spot-on! It not only speaks our language but also emphasizes our commitment to excellence. Highly recommended for branding services!"
+  },
+  {
+    id: 5,
+    name: "Imoh Etuk",
+    role: "IT Specialist",
+    company: "Blazeskills Inc",
+    review: "The website revamp was a game-changer. Semantics, SEO, and brand alignment were top-notch. The result is a user-friendly interface that reflects our industry leadership!"
+  }  
 ];

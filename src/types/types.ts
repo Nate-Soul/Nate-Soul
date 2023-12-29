@@ -1,6 +1,3 @@
-import React from "react";
-import type { LucideProps } from "lucide-react";
-
 export type processesType = {
     id: number;
     name: string;
@@ -29,10 +26,10 @@ export type navLinksType = {
 export type testimonialsType = {
     id: number;
     name: string;
-    avatarUrl: string;
+    avatarUrl?: string;
     role: string;
     company: string;
-    content: string;
+    review: string;
 }[];
 
 export type statsType = {
@@ -47,6 +44,8 @@ export type projectsType = {
     name: string;
     slug: string;
     excerpt: string;
+    features: string[];
+    case_study: string;
     link: string;
     github: string;
     category: string;
@@ -54,7 +53,6 @@ export type projectsType = {
     technologies: string[];
     featured_image: string;
 }[];
-
 
 export type sectionTitleType = {
     containerStyles?: string;

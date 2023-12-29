@@ -21,7 +21,7 @@ export interface TestimonialProps {
     avatarUrl: string;
     role: string;
     company: string;
-    content: string;
+    review: string;
 }
 
 export interface TestimonialCardProps {

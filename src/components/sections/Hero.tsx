@@ -28,7 +28,7 @@ const Hero = () => {
         <div className="hero-text flex flex-col gap-8 text-center sm:text-left z-10">
           <h1 className="font-bold text-4xl xl:text-5xl capitalize leading-snug">
             <span className="text-main-100 text-2xl">Hola, I&apos;m Nathanael.</span> <br />
-            Full Stack Developer || AI Enthusiast.
+            Full Stack Developer &amp; AI Enthusiast.
           </h1>
           <p className="font-light text-lg">
             I leverage technology and AI to help startups, and mid-sized companies transform their innovative ideas into seamless digital solutions with user centricity in mind.

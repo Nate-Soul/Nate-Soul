@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { TabsList, Tabs, TabsContent, TabsTrigger } from "@/components/ui/tabs";
 
 //icons
-import { EyeIcon, GithubIcon } from "lucide-react";
+import { EyeIcon, GithubIcon, CheckIcon } from "lucide-react";
 
 //data
 import { projectData } from "@/utils/data";
@@ -137,15 +137,24 @@ const ProjectDetail = async ({ params }: Props) => {
             ))}
           </TabsList>
           <TabsContent value="Case Study" className="py-4">
-            <div className="flex flex-col gap-y-4">
-              <p>
-                problem statement and solution goes here or just go about the regular description of the project.
-              </p>
-            </div>
+            <div className="flex flex-col gap-y-4" dangerouslySetInnerHTML={{ __html: projectDataItem[0].case_study }}></div>
           </TabsContent>
           <TabsContent value="Features" className="py-4">
             <div className="flex flex-col gap-y-2">
-              some features associated with the project
+              <div className="rounded-3xl px-5 py-8 shadow-sm shadow-gray-500 dark:shadow-primary mx-auto">
+                <h5 className="font-semibold text-xl mb-8 text-center">All Features</h5>
+                <ul className="mx-auto flex flex-col gap-y-4">
+                  {projectDataItem[0].features.map((feature, featureIndex) => (
+                    <li 
+                      key={featureIndex}
+                      className="inline-flex gap-x-2 items-center"
+                    >
+                      <CheckIcon size={18}/>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </TabsContent>
           <TabsContent value="Related Projects" className="py-4">

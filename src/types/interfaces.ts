@@ -3,6 +3,8 @@ export interface ProjectProps {
     name: string;
     slug: string;
     excerpt: string;
+    features: string[];
+    case_study: string;
     link?: string;
     github?: string;
     category: string;
@@ -18,7 +20,7 @@ export interface ProjectCardProps {
 export interface TestimonialProps {
     id: number;
     name: string;
-    avatarUrl: string;
+    avatarUrl?: string;
     role: string;
     company: string;
     review: string;

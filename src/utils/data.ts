@@ -5,18 +5,19 @@ export const projectData: projectsType = [
     id: 1,
     name: "Boot5",
     slug: "boot-5",
-    excerpt: "Modern Landing Page UI Powered by Bootstrap 5 and CSS",
+    excerpt: "Modern Landing Page UI for a learning management system",
     features: [
       "Efficient information architecture",
       "Intuitive user interface using Bootstrap 5",
       "CSS for enhanced styling and responsiveness",
       "JavaScript-powered contact form",
       "Error handling in form submissions",
-      "Email functionality for seamless communication"
+      "Email functionality for seamless communication",
+      "Customized accordion, modals, navigation bar, etc."
     ],
-    case_study: "Boot5, a modern landing page for a learning management system, was a hobby project with a focus on efficient information architecture and an intuitive user interface. Bootstrap 5 and CSS were leveraged to create a sleek and responsive design. The integration of JavaScript powered the contact form, providing error handling for form submissions and seamless email functionality. The result is a modern and user-friendly landing page that not only showcases the capabilities of Bootstrap 5 but also ensures a smooth and interactive experience for visitors.",  
-    link: "https://boot5.netlify.app",
-    github: "https://github.com/boot-5-project",
+    case_study: "<p>Boot5, a modern landing page for a learning management system, was a hobby project with a focus on efficient information architecture and an intuitive user interface. Bootstrap 5 and CSS were leveraged to create a sleek and responsive design.</p> <p>The integration of JavaScript powered the contact form, providing error handling for form submissions and seamless email functionality. The result is a modern and user-friendly landing page that not only showcases the capabilities of Bootstrap 5 but also ensures a smooth and interactive experience for visitors.</p>",  
+    link: "https://boot-5.netlify.app",
+    github: "https://github.com/Nate-Soul/boot5",
     category: "web",
     tags: ["learning management system", "landing page", "Bootstrap 5", "CSS", "JavaScript", "user interface", "contact form"],
     technologies: ["HTML5", "CSS3", "Boostrap5", "JavaScript"],
@@ -26,7 +27,7 @@ export const projectData: projectsType = [
     id: 2,
     name: "Sphenyx Digitals",
     slug: "sphenyx-digitals",
-    excerpt: "Crafting a Digital Hub for Sphenyx Digitals' Diverse Services",
+    excerpt: "Professional one page website for digital agency",
     features: [
       "Responsive one-page design",
       "Intuitive UI/UX for seamless navigation",
@@ -38,7 +39,7 @@ export const projectData: projectsType = [
       "Client success stories for social proof",
       "Efficient contact form for client inquiries"
     ],
-    case_study: "Sphenyx Digitals sought a digital hub that would not only reflect their diverse services but also align with their business goals. Our solution was a sleek, one-page website offering a seamless user experience. The dynamic portfolio section beautifully showcases their work through featured case studies, providing potential clients with a comprehensive view of their capabilities. Transparent pricing for each service ensures clarity, and our integrated secure payment system streamlines the client's journey from exploration to transaction. The storytelling section humanizes the brand, offering insights into Sphenyx Digitals' journey and values. The team showcase and client success stories provide social proof, building trust with visitors. The efficient contact form serves as a direct channel for client inquiries, facilitating seamless communication. The result is a digital presence that not only attracts potential clients but also nurtures existing relationships.",
+    case_study: "<p>Sphenyx Digitals sought a digital hub that would not only reflect their diverse services but also align with their business goals. Our solution was a sleek, one-page website offering a seamless user experience.</p><p>The dynamic portfolio section beautifully showcases their work through featured case studies, providing potential clients with a comprehensive view of their capabilities. Transparent pricing for each service ensures clarity, and our integrated secure payment system streamlines the client's journey from exploration to transaction.</p><p> The storytelling section humanizes the brand, offering insights into Sphenyx Digitals' journey and values. The team showcase and client success stories provide social proof, building trust with visitors. The efficient contact form serves as a direct channel for client inquiries, facilitating seamless communication. The result is a digital presence that not only attracts potential clients but also nurtures existing relationships.</p>",
     link: "https://sphenyx.netlify.app",
     github: "",
     category: "web",
@@ -60,7 +61,7 @@ export const projectData: projectsType = [
       "Booking form for manufacturing plant tours",
       "Customer service inquiry form"
     ],
-    case_study: "Capital Stallion, previously operating under 'oriensmedical.com,' sought a website overhaul for their hospital equipment manufacturing and distribution business. The challenge was to maintain and extend existing functionalities while improving design and usability. Our solution involved crafting a cataglossless custom WordPress theme. The catalog section elegantly showcases their diverse range of hospital equipment. The 'About Us' and company history sections provide insights into their background. Certifications and client reviews instill trust and credibility. Specific forms, including a quotation request form, a tour booking form for manufacturing plants, and a customer service inquiry form, enhance user engagement and streamline communication. The result is a well-designed, user-friendly website that not only preserves but also elevates the functionality of Capital Stallion's online presence.",
+    case_study: "<p>Capital Stallion, previously operating under <a href='https://www.oriensmedical.com' target='_blank' style='color:dodgerblue;'>Oriens Medical</a>, sought a website overhaul for their hospital equipment manufacturing and distribution business.</p><p> The challenge was to maintain and extend existing functionalities while improving design and usability. Our solution involved crafting a cataglossless custom WordPress theme. The catalog section elegantly showcases their diverse range of hospital equipment. The 'About Us' and company history sections provide insights into their background. Certifications and client reviews instill trust and credibility. </p><p> Specific forms, including a quotation request form, a tour booking form for manufacturing plants, and a customer service inquiry form, enhance user engagement and streamline communication. The result is a well-designed, user-friendly website that not only preserves but also elevates the functionality of Capital Stallion's online presence.</p>",
     link: "http://capitalorthoindia.com",
     github: "",
     category: "web",
@@ -84,9 +85,9 @@ export const projectData: projectsType = [
       "Detailed booking history tracking",
       "Responsive customer support"
     ],
-    case_study: "Sphene Reserves aimed to revolutionize travel planning by providing a hassle-free platform for clients to secure lodging in advance. Our solution delivered a user-friendly online booking system with an extensive array of lodging options, allowing travelers to align their accommodation with budget and preferences seamlessly. The integration of a secure payment system ensures a smooth transaction process. Real-time availability updates and instant booking confirmations enhance the user experience. User profiles offer a personalized touch, allowing clients to track detailed booking history and tailor future experiences. Responsive customer support further ensures a reliable and enjoyable pre-trip experience, solidifying Sphene Reserves as the go-to choice for convenient lodging bookings.",
+    case_study: "<p>Sphene Reserves aimed to revolutionize travel planning by providing a hassle-free platform for clients to secure lodging in advance. Our solution delivered a user-friendly online booking system with an extensive array of lodging options, allowing travelers to align their accommodation with budget and preferences seamlessly.</p><p>The integration of a secure payment system ensures a smooth transaction process. Real-time availability updates and instant booking confirmations enhance the user experience.</p><p> User profiles offer a personalized touch, allowing clients to track detailed booking history and tailor future experiences. Responsive customer support further ensures a reliable and enjoyable pre-trip experience, solidifying Sphene Reserves as the go-to choice for convenient lodging bookings.</p>",
     link: "https://sphenereserves.netlify.app",
-    github: "https://github.com/Nate-Soul/sphene-reserves.git",
+    github: "https://github.com/Nate-Soul/sphene-reserves",
     category: "web",
     tags: ["online booking", "travel agency", "lodging", "user-friendly", "budget customization", "secure payment", "customer support"],
     technologies: ["Tailwind CSS", "CSS3", "HTML5", "JavaScript", "React.js"],
@@ -96,7 +97,7 @@ export const projectData: projectsType = [
     id: 5,
     name: "Sphene Qwizines",
     slug: "sphene-qwizines",
-    excerpt: "Seamless food online ordering and efficient delivery system",
+    excerpt: "Seamless online food ordering and efficient delivery system",
     features: [
       "Intuitive and user-friendly interface",
       "Online food ordering system",
@@ -107,9 +108,9 @@ export const projectData: projectsType = [
       "Real-time order tracking",
       "User accounts for personalized experiences"
     ],
-    case_study: "Sphene Qwizines aimed to connect Nigerian food enthusiasts worldwide with authentic cuisines from the comfort of their homes. Our solution involved creating an intuitive and user-friendly online food ordering system. Users can explore a diverse selection of authentic Nigerian cuisines, placing orders with global accessibility. Efficient delivery options were prioritized to bridge the gap between enthusiasts and their favorite dishes. Secure payment processing and real-time order tracking enhance the user experience. User accounts were implemented for personalized interactions, ensuring a seamless journey from order placement to delivery. Sphene Qwizines now stands as a platform that not only celebrates Nigerian cuisines but also provides a convenient and accessible way for people worldwide to enjoy them.",
+    case_study: "<p>Sphene Qwizines aimed to connect Nigerian food enthusiasts worldwide with authentic cuisines from the comfort of their homes. The solution involved creating an intuitive and user-friendly online food ordering system.</p><p>Users can explore a diverse selection of authentic Nigerian cuisines, placing orders with global accessibility. Efficient delivery options were prioritized to bridge the gap between enthusiasts and their favorite dishes. Secure payment processing and real-time order tracking enhance the user experience.</p><p>User accounts were implemented for personalized interactions, ensuring a seamless journey from order placement to delivery. Sphene Qwizines now stands as a platform that not only celebrates Nigerian cuisines but also provides a convenient and accessible way for people worldwide to enjoy them.</p>",
     link: "https://sphene-qwizines.vercel.app",
-    github: "https://github.com/Nate-Soul/sphene-qwizines-fe.git",
+    github: "https://github.com/Nate-Soul/sphene-qwizines-fe",
     category: "web",
     tags: ["online food ordering", "Table Reservation", "Nigerian cuisines", "global accessibility", "delivery options", "user-friendly interface","secure payment", "real-time tracking", "personalized experiences"],
     technologies: ["Tailwind CSS", "CSS3", "HTML5", "JavaScript", "React.js", "Next.js"],
@@ -128,7 +129,7 @@ export const projectData: projectsType = [
       "Alignment with brand guidelines for color and font usage",
       "User-friendly and mobile-responsive interface"
     ],
-    case_study: "Blazeskills Inc, a global IT leader, entrusted us with revamping both their brochure website (www.blazeskills.com) and their training website (trainings.blazeskills.com). Our approach involved a comprehensive analysis using industry-approved tools, which served as reference points for optimization. Semantics, overall site structure, and on-page SEO were enhanced to elevate their online presence. Aligning with brand guidelines, we corrected color combinations and fonts usage, ensuring a cohesive visual identity. The result is user-friendly, mobile-responsive websites that not only showcase Blazeskills Inc's IT prowess but also provide an enhanced experience for visitors.",
+    case_study: "<p>Blazeskills Inc, a global IT leader, entrusted us with revamping both their brochure website (www.blazeskills.com) and their training website (trainings.blazeskills.com). Our approach involved a comprehensive analysis using industry-approved tools, which served as reference points for optimization.</p><p>Semantics, overall site structure, and on-page SEO were enhanced to elevate their online presence. Aligning with brand guidelines, we corrected color combinations and fonts usage, ensuring a cohesive visual identity. The result is user-friendly, mobile-responsive websites that not only showcase Blazeskills Inc's IT prowess but also provide an enhanced experience for visitors.</p>",
     link: "https://blazeskills.com",
     github: "",
     category: "web",
@@ -140,7 +141,7 @@ export const projectData: projectsType = [
     id: 7,
     name: "Quetas Couture",
     slug: "quetas-couture",
-    excerpt: "A Unique Brand Identity Reflecting Quality and Superiority",
+    excerpt: "A unique brand identity reflecting quality and superiority",
     features: [
       "Strategic name development - Quetas Couture",
       "Distinctive brand colors and palettes",
@@ -149,8 +150,8 @@ export const projectData: projectsType = [
       "Brand guidelines for cohesive visual communication",
       "Customized assets to set them apart"
     ],
-    case_study: "Quetas Couture, a fashion house committed to quality and superiority, sought a brand identity that truly embodied these values. Our solution involved strategic name development, resulting in 'Quetas Couture,' a name that resonates with sophistication. Distinctive brand colors and palettes were carefully selected to convey a sense of uniqueness and excellence. Typography guidelines were established for a consistent and cohesive visual identity. The logo, meticulously designed, reflects the brand's commitment to quality and stands out in the competitive fashion landscape. Comprehensive brand guidelines were created, ensuring a unified and impactful visual communication strategy. Customized assets further set Quetas Couture apart, creating a brand identity that not only aligns with their values but also establishes a memorable and distinguished presence.",
-    link: "https://drive.google.com/project/quetas-couture",
+    case_study: "<p>Quetas Couture, a fashion house committed to quality and superiority, sought a brand identity that truly embodied these values. The solution involved strategic name development, resulting in 'Quetas Couture,' a name that resonates with sophistication.</p><p>Distinctive brand colors and palettes were carefully selected to convey a sense of uniqueness and excellence. Typography guidelines were established for a consistent and cohesive visual identity. The logo, meticulously designed, reflects the brand's commitment to quality and stands out in the competitive fashion landscape.</p><p>Comprehensive brand guidelines were created, ensuring a unified and impactful visual communication strategy. Customized assets further set Quetas Couture apart, creating a brand identity that not only aligns with their values but also establishes a memorable and distinguished presence.</p>",
+    link: "",
     github: "",
     category: "brand",
     tags: ["brand identity", "fashion house", "quality", "superiority", "logo design", "brand colors", "typography", "brand guidelines"],
@@ -171,12 +172,12 @@ export const projectData: projectsType = [
       "Brand messaging consistency across platforms",
       "Marketing collateral redesign"
     ],
-    case_study: "Optimum Seab, an independent distributor of petroleum products, recognized the need for a brand transformation to better align with their services, mission, and vision. Our solution involved a comprehensive realignment of their brand strategy. The mission and vision statements were refined to articulate their core values effectively. Through a detailed analysis of their target audience, a distinctive logo design was crafted to resonate with the petroleum industry. Revised brand colors and visual elements were introduced for a more cohesive and impactful brand presence. Consistency in brand messaging across various platforms was emphasized to build a strong brand identity. The redesign extended to marketing collateral, ensuring a unified and compelling representation. The result is an Optimum Seab brand that not only reflects their core values but also resonates effectively with their target audience.",
-    link: "https://drive.google.com/project/optimum-seab",
+    case_study: "<p>Optimum Seab, an independent distributor of petroleum products, recognized the need for a brand transformation to better align with their services, mission, and vision. The solution involved a comprehensive realignment of their brand strategy.</p><p>The mission and vision statements were refined to articulate their core values effectively. Through a detailed analysis of their target audience, a distinctive logo design was crafted to resonate with the petroleum industry.</p><p>Revised brand colors and visual elements were introduced for a more cohesive and impactful brand presence. Consistency in brand messaging across various platforms was emphasized to build a strong brand identity.</p><p>The redesign extended to marketing collateral, ensuring a unified and compelling representation. The result is an Optimum Seab brand that not only reflects their core values but also resonates effectively with their target audience.</p>",
+    link: "https://drive.google.com/drive/folders/1GZZAgkBW9AuEXjUslezMflGdvnvXO7EX",
     github: "",
     category: "brand",
-    tags: ["Fashion house", "Couture", "Fashion deign", "Logo", "branding"],
-    technologies: ["Corel Draw", "PhotoShop"],
+    tags:  ["brand transformation", "petroleum products", "logo design", "brand colors", "marketing collateral", "target audience", "brand strategy"],
+    technologies: ["Corel Draw", "Adobe PhotoShop", "Adobe Illustrator"],
     featured_image: "/assets/images/portfolio/optimum-seab-logo-design.jpg"
   },
   {
@@ -193,7 +194,7 @@ export const projectData: projectsType = [
       "Consistent visual identity across platforms",
       "Incorporation of eco-friendly values"
     ],
-    case_study: "Metro Cleaning Agency, known for their diverse cleaning solutions, sought a brand identity that spoke their language and emphasized their commitment to excellence. Our solution involved integrating actual cleaning tools into the brand identity, creating a distinctive logo that reflects cleanliness and efficiency. An eco-friendly color palette and design elements were carefully selected to align with their values. Custom typography was crafted for a unique and recognizable look. Brand messaging highlighted their wide range of cleaning solutions, establishing a strong identity in the cleaning industry. Consistency in visual identity across platforms ensured a cohesive and memorable brand presence. The incorporation of eco-friendly values further sets Metro Cleaning Agency apart, solidifying their commitment to sustainable practices.",
+    case_study: "<p>Metro Cleaning Agency, known for their diverse cleaning solutions, sought a brand identity that spoke their language and emphasized their commitment to excellence. The solution involved integrating actual cleaning tools into the brand identity, creating a distinctive logo that reflects cleanliness and efficiency.</p><p>An eco-friendly color palette and design elements were carefully selected to align with their values. Custom typography was crafted for a unique and recognizable look. Brand messaging highlighted their wide range of cleaning solutions, establishing a strong identity in the cleaning industry.</p><p>Consistency in visual identity across platforms ensured a cohesive and memorable brand presence. The incorporation of eco-friendly values further sets Metro Cleaning Agency apart, solidifying their commitment to sustainable practices.</p>",
     link: "",
     github: "",
     category: "brand",
@@ -326,7 +327,7 @@ export  const testimonialData: testimonialsType = [
     name: "Ekudomo Bassey",
     role: "CEO",
     company: "Metro Cleaning Agency",
-    review: "Metro Cleaning Agency's brand identity is spot-on! It not only speaks our language but also emphasizes our commitment to excellence. Highly recommended for branding services!"
+    review: "Metro Cleaning Agency's brand identity is spot-on! It speaks our language and also emphasizes our commitment to excellence. Highly recommended for branding services!"
   },
   {
     id: 5,

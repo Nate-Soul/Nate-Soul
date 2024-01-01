@@ -41,7 +41,7 @@ const MobileMenu = () => {
       text: "Let's Connect"
     },
     {
-      url: "/assets/docs/nathanael-ukpong-cv.pdf",
+      url: "https://drive.google.com/file/d/1GWfHAof6Sn_OYiUqu-pF-pAoVtUMRrlF/view?usp=drivesdk",
       text: "Download Resume"
     }
   ];

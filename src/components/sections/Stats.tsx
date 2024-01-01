@@ -23,7 +23,7 @@ const Stats = () => {
     },
     {
       id: 3,
-      name: "Experience Years",
+      name: "Years of Experience",
       amount: 3,
       icon: <Calendar size={30} />,
     },

@@ -52,7 +52,7 @@ const AboutSection = () => {
                 </Button>
               </Link>
               <Link 
-                href="/assets/docs/nathanael-ukpong-cv.pdf"
+                href="https://drive.google.com/file/d/1GWfHAof6Sn_OYiUqu-pF-pAoVtUMRrlF/view?usp=drivesdk"
                 className="capitalize"
               >
                 <Button variant="secondary" className="gap-x-2">

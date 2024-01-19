@@ -46,12 +46,15 @@ export interface ServiceCardProps {
 
 export interface ProcessProps {
     id: number;
-    name: string;
+    icon_url: string;
+    name: string,
+    slug: string;
     desc: string;
-    icon: {
-        url: string;
-        alt: string;
-    };
+    icon: string,
+    icon_alt: string;
+    priority: number;
+    created_at: string;
+    modified_at: string;
 }
 
 export interface ProcessCardProps {

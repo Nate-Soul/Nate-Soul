@@ -27,11 +27,11 @@ const ContactSection = () => {
             </p>
             <div className="wrapper flex gap-x-5 items-center">
               <MailIcon size={18} className="text-primary"/>
-              <Link href="mailto:contact@natesoul.com">reachnatesoul.dev@gmail.com</Link>
+              <Link href="mailto:natesoul.dev@gmail.com">natesoul.dev@gmail.com</Link>
             </div>
             <div className="wrapper flex gap-x-5 items-center">
               <PhoneCall size={18} className="text-primary"/>
-              <Link href="tel:+234708675038">+234 708 675 2038</Link>
+              <Link href="tel:+2347086752038">+234 708 675 2038</Link>
             </div>
             <div className="wrapper flex gap-x-5 items-center">
               <HomeIcon size={18} className="text-primary"/>

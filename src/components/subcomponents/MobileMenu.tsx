@@ -41,7 +41,7 @@ const MobileMenu = () => {
       text: "Let's Connect"
     },
     {
-      url: "https://drive.google.com/file/d/1GWfHAof6Sn_OYiUqu-pF-pAoVtUMRrlF/view?usp=drivesdk",
+      url: "https://drive.google.com/file/d/1KXDbmxWegYspjYG08kgSSuKXjeiDAFE6/view?usp=drive_link",
       text: "Download Resume"
     }
   ];
@@ -61,18 +61,18 @@ const MobileMenu = () => {
                   { (mobileNavLink.url !== "/contact" && mobileNavLink.text !== "Download Resume") ? (
                     <Link href={mobileNavLink.url} role="menuitem">{mobileNavLink.text}</Link>
                     ) : mobileNavLink.url === "/contact" ? (
-                    <Link href={mobileNavLink.url}>
-                      <Button className="gap-x-2">
+                    <Link href={mobileNavLink.url} className="btn btn-primary btn-md gap-x-2">
                         {mobileNavLink.text}
                         <Send size={18}/>
-                      </Button>
+                      {/* <Button className="gap-x-2">
+                      </Button> */}
                     </Link>
                     ) : mobileNavLink.text === "Download Resume" && (
-                      <Link href={mobileNavLink.url}>
-                        <Button variant="secondary" className="gap-x-2">
+                      <Link href={mobileNavLink.url} className="btn btn-secondary btn-md gap-x-2">
                           {mobileNavLink.text}
                           <DownloadIcon size={18}/>
-                        </Button>
+                        {/* <Button variant="secondary" className="gap-x-2">
+                        </Button> */}
                       </Link>
                     )}
                 </li>

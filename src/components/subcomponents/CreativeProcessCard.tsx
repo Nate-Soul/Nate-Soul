@@ -13,8 +13,8 @@ const CreativeProcessCard: React.FC<ProcessCardProps> = ({ process }) => {
     >
         <CardHeader className="relative h-56">
             <Image 
-                src={process.icon.url} 
-                alt={process.icon.alt} 
+                src={process.icon_url} 
+                alt={process.icon_alt} 
                 className="h-full w-full object-cover rounded-3xl border-b-2 mb-4"
                 fill
                 sizes="(max-width: 768px) 80vw, (max-width: 640px) 50vw, 33vw"

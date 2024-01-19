@@ -9,9 +9,6 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { Send, FolderClosed, ArrowDown } from "lucide-react";
 
-//images
-import MyImg from "../../../public/assets/images/personal/nathanael-ukpong-transparent-bg.png";
-
 const Hero = () => {
   return (
     <section id="hero" className="py-16 lg:py-4 relative bg-hero bg-no-repeat bg-center bg-fixed bg-cover dark:bg-hero-dark dark:text-background">
@@ -36,15 +33,16 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="/contact"
-              className="w-full sm:w-max"
+              className="btn btn-primary btn-md w-full sm:w-max gap-x-2"
             >
-              <Button className="gap-x-2 w-full"> Let's Connect <Send size={18}/></Button>
+              {/* <Button className="gap-x-2 w-full"> </Button> */}Let's Connect <Send size={18}/>
             </Link>
             <Link
               href="/projects"
-              className="w-full sm:w-max"
+              className="btn btn-secondary btn-md w-full sm:w-max gap-x-2" 
             >
-              <Button variant="secondary" className="gap-x-2 w-full"> Browse projects <FolderClosed size={18}/></Button>
+              Browse projects <FolderClosed size={18}/>
+              {/* <Button variant="secondary" className="gap-x-2 w-full"> </Button> */}
             </Link>
           </div>
         </div>

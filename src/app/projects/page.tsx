@@ -1,21 +1,42 @@
 "use client";
-// import { Metadata } from "next";
-
-import SectionTitle from "@/components/subcomponents/SectionTitle";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ProjectCard from "@/components/subcomponents/ProjectCard";
-
-import { projectData } from "@/utils/data";
 import { useState } from "react";
 
+// import { Metadata } from "next";
+// import { notFound } from "next/navigation";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import SectionTitle from "@/components/subcomponents/SectionTitle";
+import ProjectCard from "@/components/subcomponents/ProjectCard";
+
+// import { projectsType } from "@/types/types";
+import { projectData } from "@/utils/data";
+
+// type initialDataType = { data: projectsType | null, loading: string, error: null };
 // export const metadata: Metadata = {
 //   title: 'My Projects | Nathanael Ukpong',
 //   description: 'Explore a wide range of my web development projects with various tech stacks',
 //   keywords: ["case studies", "projects", "websites", "web development", "branding"],
 // };
 
+// export async function getData(url: string) {
+//   const res = await fetch(url);
+
+//   if(!res.ok){
+//     notFound();
+//   }
+
+//   return res.json();
+// }
+import useFetch from "@/hooks/useFetch";
+
+
 const Projects = () => {
+
+  // const data = await getData("http://localhost:8000/api/projects");
+  // const { data } : { data: initialDataType } = useFetch("http://localhost:8000/api/projects");
+
+  // console.log(data);
 
   //get all categories from the projectData
   const allCategories = [...projectData.map(item => item.category)];

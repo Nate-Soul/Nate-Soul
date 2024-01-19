@@ -103,14 +103,16 @@ const ProjectDetail = async ({ params }: Props) => {
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3">
               {projectDataItem[0].link && (
-              <Link href={projectDataItem[0].link} className="w-full sm:w-max" title="Live preview">
-                <Button className="gap-x-2 w-full">Live Preview <EyeIcon size={20}/></Button>
+              <Link href={projectDataItem[0].link} className="btn btn-primary btn-md w-full sm:w-max gap-x-2" title="Live preview">
+                Live Preview <EyeIcon size={20}/>
+                {/* <Button className="gap-x-2 w-full"></Button> */}
               </Link>)
               }
               {
                 projectDataItem[0].github && (
-                  <Link href={projectDataItem[0].github} className="w-full sm:w-max" title="Visit Github repo">
-                    <Button variant="secondary" className="gap-x-2 w-full">View Github <GithubIcon size={20}/></Button>
+                  <Link href={projectDataItem[0].github} className="btn btn-secondary btn-md gap-x-2 w-full sm:w-max" title="Visit Github repo">
+                    View Github <GithubIcon size={20}/>
+                    {/* <Button variant="secondary" className="gap-x-2 w-full"></Button> */}
                   </Link>
                 )
               }

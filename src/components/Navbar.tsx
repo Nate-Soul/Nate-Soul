@@ -68,8 +68,9 @@ const Navbar = () => {
               <Link href={navLink.url}>{navLink.text}</Link>
             </li>) : (
           <li key={i}>
-            <Link href={navLink.url}>
-              <Button className="gap-x-2">{navLink.text} <Send size={15}/> </Button>
+            <Link href={navLink.url} className="btn btn-primary btn-md gap-x-2">
+              {navLink.text} <Send size={15}/>
+              {/* <Button className="gap-x-2"> </Button> */}
             </Link>
           </li>)
           )}

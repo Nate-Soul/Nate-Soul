@@ -12,7 +12,7 @@ const ThemeToggler = () => {
     <Button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       size="icon"
-      className="rounded-none"
+      className="btn btn-primary rounded-none"
     >
     {theme === "dark" ? (
       <MoonIcon className="h-[1.2rem] w-[1.2rem] transition-all"/>

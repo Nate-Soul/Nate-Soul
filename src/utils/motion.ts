@@ -1,4 +1,4 @@
-import { navVariantsType } from "./types";
+import { navVariantsType } from "../types/motionTypes";
 
 export const navVariants: navVariantsType = {
     hidden: {

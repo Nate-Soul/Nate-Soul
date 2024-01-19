@@ -44,21 +44,19 @@ const AboutSection = () => {
             <div className="flex items-center gap-x-3">
               <Link 
                 href="/contact"
-                className="capitalize"
+                className="btn btn-primary btn-md capitalize gap-x-2"
               >
-                <Button className="gap-x-2">
-                  Let's Connect
-                  <Send size={18}/>
-                </Button>
+                Let's Connect <Send size={18}/>
+                {/* <Button className="gap-x-2"></Button> */}
               </Link>
               <Link 
-                href="https://drive.google.com/file/d/1GWfHAof6Sn_OYiUqu-pF-pAoVtUMRrlF/view?usp=drivesdk"
-                className="capitalize"
+                href="https://drive.google.com/file/d/1KXDbmxWegYspjYG08kgSSuKXjeiDAFE6/view?usp=drive_link"
+                className="btn btn-md btn-secondary capitalize gap-x-2"
               >
-                <Button variant="secondary" className="gap-x-2">
                   Download Resume
                   <DownloadIcon size={18}/>
-                </Button>
+                {/* <Button variant="secondary" className="gap-x-2">
+                </Button> */}
               </Link>
             </div>
           </div>

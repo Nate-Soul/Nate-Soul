@@ -62,7 +62,9 @@ const ContactForm: React.FC<ContactUsProps> = () => {
         setSuccessMessage(true);
         setTimeout(() => {
           setSuccessMessage(false);
+          formRef.current?.reset();
         }, 3000);
+
       }, (error: EmailJSResponseStatus) => {
         // console.error(error.text);
         setErrorMessage(true);

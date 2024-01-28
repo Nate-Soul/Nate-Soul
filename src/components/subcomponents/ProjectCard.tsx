@@ -20,12 +20,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <Card className="group overflow-hidden relative bg-card text-card-foreground dark:bg-card-foreground dark:text-card">
       <CardHeader className="p-0">
         <div className="relative w-full h-[300px] flex items-center justify-center bg-accent dark:bg-gray-900">
-          <Badge className="absolute top-4 left-4 uppercase font-medium text-xs z-10">
-            {project.category}
-          </Badge>
           <Image
-            src={project.featured_image}
-            alt={project.name}
+            src={project.images[0].image_url}
+            alt={project.images[0].alt}
             width={360}
             height={215}
             className="shadow-lg shadow-gray-400 dark:shadow-black absolute bottom-0"
@@ -61,6 +58,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
       </CardHeader>
       <CardContent className="h-full px-8 py-6 flex flex-col gap-y-2">
+        <div className="flex gap-x-2 items-center">
+        {project.services.map(projectService => (
+          <Badge variant="destructive" className="uppercase font-medium text-xs z-10" key={projectService.id}>
+            {projectService.name}
+          </Badge>
+        ))}
+        </div>
         <CardTitle className="md:text-xl">{project.name}</CardTitle>
         <CardDescription className="lg:text-lg">
           {project.excerpt}

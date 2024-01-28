@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // import { Metadata } from "next";
 // import { notFound } from "next/navigation";
@@ -9,8 +9,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SectionTitle from "@/components/subcomponents/SectionTitle";
 import ProjectCard from "@/components/subcomponents/ProjectCard";
 
-// import { projectsType } from "@/types/types";
+import { projectsType } from "@/types/types";
 import { projectData } from "@/utils/data";
+// import { ProjectProps } from "@/types/interfaces";
 
 // type initialDataType = { data: projectsType | null, loading: string, error: null };
 // export const metadata: Metadata = {
@@ -28,29 +29,40 @@ import { projectData } from "@/utils/data";
 
 //   return res.json();
 // }
-import useFetch from "@/hooks/useFetch";
+// import useFetch from "@/hooks/useFetch";
 
 
-const Projects = () => {
+const Projects: React.FC = () => {
 
-  // const data = await getData("http://localhost:8000/api/projects");
-  // const { data } : { data: initialDataType } = useFetch("http://localhost:8000/api/projects");
-
-  // console.log(data);
+  // const { data } = await getData("http://localhost:8000/api/projects");
+  // const { data } = await getData("http://localhost:8000/api/projects/categories");
 
   //get all categories from the projectData
-  const allCategories = [...projectData.map(item => item.category)];
+  const allCategories = ["web", "brand"];
 
   // remove duplicate categories
-  const uniqueCategories: string[] = Array.from(new Set(allCategories));
-  const categories: string[]       = ["all projects", ...uniqueCategories];
+  const categories: string[]       = ["all", ...allCategories];
   
   const [tabCategories, setTabCategories] = useState(categories);
-  const [tabCategory, setTabCategory]     = useState("all projects");
+  const [tabCategory, setTabCategory]     = useState<string>("all");
+  // const [filteredProjects, setFilteredProjects] = useState<projectsType>([]);
 
-  const filteredProjects = projectData.filter((project) => {
-    return tabCategory === "all projects" ? projectData : project.category === tabCategory;
-  });
+  // useEffect(() => {
+
+  //   const updatedFilteredProjects = tabCategory === "all" 
+  //   ? projectData 
+  //   : projectData.filter(project => 
+  //     project.categories.some(category => category.name.toLowerCase() === tabCategory)
+  //   );
+
+  //   setFilteredProjects(updatedFilteredProjects);
+  // }, [tabCategory]);
+
+  const filteredProjects = tabCategory === "all" 
+    ? projectData 
+    : projectData.filter(project => 
+      project.services.some(service => service.name.toLowerCase() === tabCategory)
+    );
 
   return (
     <section className="py-12 pb-16 bg-background text-foreground dark:bg-foreground dark:text-background">
@@ -62,7 +74,7 @@ const Projects = () => {
           page={true}
         />
         {
-          filteredProjects.length > 0 ? (
+          projectData.length > 0 ? (
           <Tabs defaultValue={tabCategory}>
             <TabsList 
               className={`w-full h-full lg:max-w-[640px] grid md:grid-cols-3 gap-y-4 md:gap-y-0 mb-12 mx-auto`}

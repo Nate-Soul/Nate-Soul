@@ -19,8 +19,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({testimonial}) => {
       </div>
         <CardHeader className="px-0">
             <figure className="flex gap-3 items-center">
-              {testimonial.avatarUrl && (
-                <Image src={testimonial.avatarUrl} alt="testimonees name" height={70} width={70} className="rounded-full"/>
+              {testimonial.avatar_url && (
+                <Image src={testimonial.avatar_url} alt="testimonees name" height={70} width={70} className="rounded-full object-contain"/>
               )}
                 <figcaption>
                     <CardTitle className="text-xl">{testimonial.name}</CardTitle>

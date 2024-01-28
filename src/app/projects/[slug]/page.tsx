@@ -7,11 +7,11 @@ import Link from "next/link";
 //components, UIs.
 import SectionTitle from "@/components/subcomponents/SectionTitle";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { TabsList, Tabs, TabsContent, TabsTrigger } from "@/components/ui/tabs";
 
 //icons
-import { EyeIcon, GithubIcon, CheckIcon } from "lucide-react";
+import { EyeIcon, GithubIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 //data
 import { projectData } from "@/utils/data";
@@ -32,7 +32,7 @@ export async function generateMetadata ({ params }: Props): Promise<Metadata> {
   return {
     title: `${project[0].name}'s Project Case Study`,
     description: project[0].excerpt,
-    keywords: project[0].tags,
+    keywords: project[0].tags.map((tag) => tag.name),
   }
 }
 
@@ -41,7 +41,13 @@ const ProjectDetail = async ({ params }: Props) => {
 
   const projectDataItem = await getData(params.slug);
 
-  const relatedProjects = projectData.filter(projectItem => (projectItem.category === projectDataItem[0].category) && (projectItem.slug !== projectDataItem[0].slug));
+  const relatedProjects = projectData.filter(
+    project => projectDataItem[0].services.some(service => 
+      project.services.some(originalService => 
+        originalService.name === service.name
+      )
+    )
+  );
 
   const tabDisplays = [
     {
@@ -72,9 +78,19 @@ const ProjectDetail = async ({ params }: Props) => {
             />
             <div className="flex items-center gap-x-2">
               <span className="font-semibold">
-                Category:
+                Services offered:
               </span>
-              <Badge variant="outline" className="uppercase font-normal dark:text-background">{projectDataItem[0].category}</Badge>
+              {
+                projectDataItem[0].services.map((service, serviceIndex) => (
+                  <Badge 
+                    variant="outline" 
+                    className="uppercase font-normal dark:text-background"
+                    key={serviceIndex}
+                  >
+                    {service.name}
+                  </Badge>
+                ))
+              }
             </div>
             <div className="flex flex-wrap items-center gap-2">
               {/* for each project tag */}
@@ -85,50 +101,72 @@ const ProjectDetail = async ({ params }: Props) => {
                   variant="outline"
                   key={tagindex}
                 >
-                  {tag}
+                  {tag.name}
                 </Badge>
               ))}
             </div>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="font-semibold">Technologies: </span>
+              <span className="font-semibold">Technologies used: </span>
               { projectDataItem[0].technologies.map((tech, techIndex) => (
                 <Badge 
                   className="capitalize font-normal dark:text-background" 
                   variant="outline"
                   key={techIndex}
                 >
-                  {tech}
+                  {tech.name}
                 </Badge>
               ))}
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3">
               {projectDataItem[0].link && (
-              <Link href={projectDataItem[0].link} className="btn btn-primary btn-md w-full sm:w-max gap-x-2" title="Live preview">
+              <Link 
+                href={projectDataItem[0].link} 
+                className="btn btn-primary btn-md w-full sm:w-max gap-x-2" 
+                title="Live preview"
+              >
                 Live Preview <EyeIcon size={20}/>
-                {/* <Button className="gap-x-2 w-full"></Button> */}
               </Link>)
               }
               {
                 projectDataItem[0].github && (
-                  <Link href={projectDataItem[0].github} className="btn btn-secondary btn-md gap-x-2 w-full sm:w-max" title="Visit Github repo">
+                  <Link 
+                    href={projectDataItem[0].github} 
+                    className="btn btn-secondary btn-md gap-x-2 w-full sm:w-max" 
+                    title="Visit Github repo"
+                  >
                     View Github <GithubIcon size={20}/>
-                    {/* <Button variant="secondary" className="gap-x-2 w-full"></Button> */}
                   </Link>
                 )
               }
             </div>
           </div>
-          <div className="">
-            {/* loop through the images and display them */}
-            <figure className="w-full h-full border-4 dark:border-primary rounded-3xl overflow-hidden">
-              <Image 
-                src={projectDataItem[0].featured_image} 
-                alt={projectDataItem[0].name} 
+          <div className="relative">
+            <div 
+              className="w-full h-full border-4 flex overflow-x-scroll hide-scrollbar scroll-smooth snap-x snap-mandatory dark:border-primary rounded-3xl overflow-hidden"
+            >
+            {projectDataItem[0].images.map((image) => (
+              <Image
+                id={`slide-${image.id}`}
+                key={image.id}
+                src={image.image_url}
+                alt={image.alt} 
                 width={1024} 
                 height={1024}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover snap-center"
               />
-            </figure>
+            ))}
+            </div>
+            {projectDataItem[0].images.length > 1 && (
+              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-x-2">
+              {projectDataItem[0].images.map(image => (
+                <Link 
+                  href={`#slide-${image.id}`} 
+                  key={image.id}
+                  className="bg-primary h-3 w-3 rounded-full"
+                >
+                </Link>
+              ))}
+            </div>)}
           </div>
         </div>
         {/* tabs */}
@@ -152,7 +190,7 @@ const ProjectDetail = async ({ params }: Props) => {
                       className="inline-flex gap-x-2 items-center"
                     >
                       <CheckIcon size={18}/>
-                      {feature}
+                      {feature.feature}
                     </li>
                   ))}
                 </ul>

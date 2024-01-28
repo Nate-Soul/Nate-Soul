@@ -1,3 +1,11 @@
+export type sectionTitleType = {
+    containerStyles?: string;
+    title: string;
+    extendedTitle: string;
+    text?: string;
+    page: boolean;
+};
+
 export type processesType = {
     id: number;
     icon_url: string;
@@ -12,13 +20,17 @@ export type processesType = {
 }[];
 
 export type servicesType = {
-    id: number;
-    icon: {
-        url: string;
-        alt: string;
-    };
-    name: string;
-    text: string;
+    id: number,
+    icon_url: string,
+    name: string,
+    slug: string,
+    desc: string,
+    icon: string,
+    icon_alt: string,
+    priority: number,
+    is_active: boolean,
+    created_at: string,
+    modified_at: string
 }[];
 
 export type navLinksType = {
@@ -27,12 +39,17 @@ export type navLinksType = {
 }[];
 
 export type testimonialsType = {
-    id: number;
-    name: string;
-    avatarUrl?: string;
-    role: string;
-    company: string;
-    review: string;
+    id: number,
+    avatar_url: string,
+    web_id: string,
+    name: string,
+    role: string,
+    company: string,
+    review: string,
+    avatar: string,
+    is_active: boolean,
+    created_at: string,
+    modified_at: string
 }[];
 
 export type statsType = {
@@ -42,25 +59,55 @@ export type statsType = {
     icon: JSX.Element;
 }[];
 
-export type projectsType = {
+type tagsType = {
+    id: number,
+    name: string,
+    slug: string
+}
+
+type projectServiceType = {
     id: number;
     name: string;
     slug: string;
-    excerpt: string;
-    features: string[];
-    case_study: string;
-    link: string;
-    github: string;
-    category: string;
-    tags: string[];
-    technologies: string[];
-    featured_image: string;
-}[];
+    is_active: boolean
+}
 
-export type sectionTitleType = {
-    containerStyles?: string;
-    title: string;
-    extendedTitle: string;
-    text?: string;
-    page: boolean;
-};
+type technologiesType = {
+    id: number,
+    name: string,
+    slug: string
+}
+
+type featuresType = {
+    id: number,
+    web_id: string,
+    feature: string
+}
+
+type imagesType = {
+    id: number,
+    image_url: string,
+    web_id: string,
+    alt: string,
+    image: string,
+    is_feature: boolean,
+    project: number
+}
+
+export type projectsType = {
+    id: number,
+    tags: tagsType[],
+    services: projectServiceType[],
+    technologies: technologiesType[],
+    features: featuresType[],
+    images: imagesType[],
+    name: string,
+    slug: string,
+    excerpt: string,
+    case_study: string,
+    link?: string | null,
+    github?: string | null,
+    is_active: boolean,
+    created_at: string,
+    modified_at: string
+}[];

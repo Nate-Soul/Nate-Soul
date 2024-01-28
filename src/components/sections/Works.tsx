@@ -20,8 +20,8 @@ const WorksSection = () => {
             extendedTitle="Featured Case Studies"
             page={false}
           />
-          <Link href="/projects">
-            <Button className="gap-x-2">View All Projects <ChevronRightIcon size={20}/> </Button>
+          <Link href="/projects" className="btn btn-md btn-primary gap-x-2">
+              View All Projects <ChevronRightIcon size={20}/>
           </Link>          
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

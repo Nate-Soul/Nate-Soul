@@ -62,12 +62,12 @@ const TestimonialsSection = () => {
               ))}
             </Swiper>
             <div
-              className="absolute z-10 bottom-4 right-0 flex"
+              className="absolute z-10 bottom-4 right-0 flex gap-x-2"
             >
               <Button
                 id="swiperButtonPrev"
-                className="swiper-button-prev rounded-none rounded-l-3xl"
-                size="sm"
+                className="swiper-button-prev btn btn-primary rounded-none rounded-l-3xl"
+                size="icon"
                 ref={prevRef}
               >
                 <span className="sr-only">prev</span>
@@ -75,8 +75,8 @@ const TestimonialsSection = () => {
               </Button>
               <Button
                 id="swiperButtonNext"
-                className="swiper-button-next rounded-none rounded-r-3xl"
-                size="sm"
+                className="swiper-button-next btn btn-primary rounded-none rounded-r-3xl"
+                size="icon"
                 ref={nextRef}
               >
                 <span className="sr-only">Next</span>

@@ -16,7 +16,9 @@ const ServicesSection = () => {
       />
       <div className="container grid sm:grid-cols-2 lg:grid-cols-3 justify-center content-center gap-4">
         {
-          serviceData.length > 0 && serviceData.map((serviceItem, serviceItemIndex) => (
+          serviceData.length > 0 
+            && serviceData.sort((a,b) => a.priority - b.priority)
+            .map((serviceItem, serviceItemIndex) => (
             <ServiceCard service={serviceItem} key={serviceItemIndex}/>
           ))
         }

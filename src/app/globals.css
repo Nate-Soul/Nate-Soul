@@ -90,13 +90,15 @@
 .btn-icon {
   @apply h-10 w-10;
 }
-
 .hide-scrollbar{
     scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar{
     display: none;
+    height: 0;
+    width: 0;
 }
 
 .container-fluid {

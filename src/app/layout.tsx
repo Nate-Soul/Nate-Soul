@@ -9,9 +9,9 @@ import FloatingComponents from '@/components/FloatingComponents'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Nathanael Ukpong',
-  description: 'Full-Stack Web Developer with Expertise in User Experience (UX)',
-  keywords: ["full stack web developer", "branding", "frontend development", "backend development", "accessibility", "SEO"]
+  title: 'Nathanael Ukpong - Software Developer Architecting Digital Solutions',
+  description: 'Explore user-centric digital experiences and products with Nathanael Ukpong. Let\'s collaborate on your next project.',
+  keywords: ["full stack web developer", "Software Developer", "web development", "UX design", "Digital solutions", "coding", "programming", "technology", "branding", "front-end development", "backend development", "accessibility", "SEO"],
 };
 
 export default function RootLayout({

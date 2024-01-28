@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 //components and uis
-import { Button } from "../ui/button";
 import { Send, FolderClosed, ArrowDown } from "lucide-react";
 
 const Hero = () => {
@@ -25,24 +24,23 @@ const Hero = () => {
         <div className="hero-text flex flex-col gap-8 text-center sm:text-left z-10">
           <h1 className="font-bold text-4xl xl:text-5xl capitalize leading-snug">
             <span className="text-main-100 text-2xl">Hola, I&apos;m Nathanael.</span> <br />
-            Full Stack Developer &amp; AI Enthusiast.
+            Full Stack Software Developer
           </h1>
           <p className="font-light text-lg">
-            I leverage technology and AI to help startups, and mid-sized companies transform their innovative ideas into seamless digital solutions with user centricity in mind.
+            I leverage technology to help startups, and mid-sized companies transform their innovative ideas into seamless digital solutions with user centricity in mind.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="/contact"
               className="btn btn-primary btn-md w-full sm:w-max gap-x-2"
             >
-              {/* <Button className="gap-x-2 w-full"> </Button> */}Let's Connect <Send size={18}/>
+              Let's Connect <Send size={18}/>
             </Link>
             <Link
               href="/projects"
               className="btn btn-secondary btn-md w-full sm:w-max gap-x-2" 
             >
               Browse projects <FolderClosed size={18}/>
-              {/* <Button variant="secondary" className="gap-x-2 w-full"> </Button> */}
             </Link>
           </div>
         </div>

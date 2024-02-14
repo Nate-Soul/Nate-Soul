@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import DOMPurify from "dompurify";
+// import purify from "dompurify";
 
 //components, UIs.
 import SectionTitle from "@/components/subcomponents/SectionTitle";
@@ -203,9 +203,7 @@ const ProjectDetail = async ({ params }: Props) => {
           <TabsContent value="Case Study" className="py-4">
             <div 
               className="flex flex-col gap-y-4" 
-              dangerouslySetInnerHTML={
-                { __html: DOMPurify.sanitize(projectDataItem.case_study) }
-              }
+              dangerouslySetInnerHTML={{ __html: projectDataItem.case_study }}
             ></div>
           </TabsContent>
           <TabsContent value="Features" className="py-4">

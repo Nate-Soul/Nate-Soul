@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import DOMPurify from "dompurify";
 
 //components, UIs.
 import SectionTitle from "@/components/subcomponents/SectionTitle";
@@ -11,14 +12,27 @@ import { Badge } from "@/components/ui/badge";
 import { TabsList, Tabs, TabsContent, TabsTrigger } from "@/components/ui/tabs";
 
 //icons
-import { EyeIcon, GithubIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { EyeIcon, GithubIcon, CheckIcon } from "lucide-react";
 
 //data
-import { projectData } from "@/utils/data";
+// import { projectData } from "@/utils/data";
 import ProjectCard from "@/components/subcomponents/ProjectCard";
+import { projectsType } from "@/types/types";
 
-async function getData(slug: string) {
- return projectData.filter((projectitem) => projectitem.slug === slug) || notFound;
+async function getData(url: string, slug?: string) {
+  let res;
+
+  if (slug) {
+    res = await fetch(`${url}/${slug}`);
+  } else {
+    res = await fetch(url, { cache: "no-store" });
+  }
+
+  if(!res.ok){
+    return notFound();
+  }
+
+  return res.json();
 }
 
 type Props = {
@@ -28,24 +42,26 @@ type Props = {
 }
 
 export async function generateMetadata ({ params }: Props): Promise<Metadata> {
-  const project = await getData(params.slug);
+  const project: projectsType = await getData("https://nate-soul-api.vercel.app/api/projects", params.slug);
   return {
-    title: `${project[0].name}'s Project Case Study`,
-    description: project[0].excerpt,
-    keywords: project[0].tags.map((tag) => tag.name),
+    title: `${project.name}'s Project Case Study`,
+    description: project.excerpt,
+    keywords: project.tags.map((tag) => tag.name),
   }
 }
 
 
 const ProjectDetail = async ({ params }: Props) => {
 
-  const projectDataItem = await getData(params.slug);
+  const projectDataItem: projectsType = await getData("https://nate-soul-api.vercel.app/api/projects", params.slug);
+  const projectRes                    = await getData("https://nate-soul-api.vercel.app/api/projects");
+  const projectData: projectsType[]   = projectRes.data;
 
   const relatedProjects = projectData.filter(
-    project => projectDataItem[0].services.some(service => 
+    project => projectDataItem.services.some(service => 
       project.services.some(originalService => 
         originalService.name === service.name
-      )
+      ) && (project.slug !== projectDataItem.slug)
     )
   );
 
@@ -72,30 +88,30 @@ const ProjectDetail = async ({ params }: Props) => {
             <SectionTitle 
               containerStyles="text-center md:text-left" 
               title="Case Study for" 
-              extendedTitle={projectDataItem[0].name}
-              text={projectDataItem[0].excerpt}
+              extendedTitle={projectDataItem.name}
+              text={projectDataItem.excerpt}
               page={true}
             />
             <div className="flex items-center gap-x-2">
+              <p>
               <span className="font-semibold">
-                Services offered:
+                Services offered:&nbsp;
               </span>
               {
-                projectDataItem[0].services.map((service, serviceIndex) => (
-                  <Badge 
-                    variant="outline" 
-                    className="uppercase font-normal dark:text-background"
+                projectDataItem.services.map((service, serviceIndex) => (
+                  <span
                     key={serviceIndex}
                   >
-                    {service.name}
-                  </Badge>
+                    {service.name},&nbsp;
+                  </span>
                 ))
               }
+              </p>
             </div>
             <div className="flex flex-wrap items-center gap-2">
               {/* for each project tag */}
               <span className="font-semibold">Tags:</span>
-              { projectDataItem[0].tags.map((tag, tagindex) => (
+              { projectDataItem.tags.map((tag, tagindex) => (
                 <Badge 
                   className="capitalize font-normal dark:text-background" 
                   variant="outline"
@@ -105,22 +121,30 @@ const ProjectDetail = async ({ params }: Props) => {
                 </Badge>
               ))}
             </div>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center gap-4">
               <span className="font-semibold">Technologies used: </span>
-              { projectDataItem[0].technologies.map((tech, techIndex) => (
-                <Badge 
-                  className="capitalize font-normal dark:text-background" 
-                  variant="outline"
-                  key={techIndex}
+              { projectDataItem.technologies.map((tech) => (
+                <figure 
+                  className="flex items-center gap-x-1"
+                  key={tech.id}
                 >
-                  {tech.name}
-                </Badge>
+                  <Image
+                    src={tech.icon}
+                    alt={tech.name}
+                    width={25}
+                    height={25}
+                    className="aspect-square h-6 w-auto object-contain"
+                  />
+                  <figcaption>
+                    {tech.name}
+                  </figcaption>
+                </figure>
               ))}
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3">
-              {projectDataItem[0].link && (
+              {projectDataItem.link && (
               <Link 
-                href={projectDataItem[0].link} 
+                href={projectDataItem.link} 
                 className="btn btn-primary btn-md w-full sm:w-max gap-x-2" 
                 title="Live preview"
               >
@@ -128,9 +152,9 @@ const ProjectDetail = async ({ params }: Props) => {
               </Link>)
               }
               {
-                projectDataItem[0].github && (
+                projectDataItem.github && (
                   <Link 
-                    href={projectDataItem[0].github} 
+                    href={projectDataItem.github} 
                     className="btn btn-secondary btn-md gap-x-2 w-full sm:w-max" 
                     title="Visit Github repo"
                   >
@@ -144,7 +168,7 @@ const ProjectDetail = async ({ params }: Props) => {
             <div 
               className="w-full h-full border-4 flex overflow-x-scroll hide-scrollbar scroll-smooth snap-x snap-mandatory dark:border-primary rounded-3xl overflow-hidden"
             >
-            {projectDataItem[0].images.map((image) => (
+            {projectDataItem.images.map((image) => (
               <Image
                 id={`slide-${image.id}`}
                 key={image.id}
@@ -156,9 +180,9 @@ const ProjectDetail = async ({ params }: Props) => {
               />
             ))}
             </div>
-            {projectDataItem[0].images.length > 1 && (
+            {projectDataItem.images.length > 1 && (
               <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-x-2">
-              {projectDataItem[0].images.map(image => (
+              {projectDataItem.images.map(image => (
                 <Link 
                   href={`#slide-${image.id}`} 
                   key={image.id}
@@ -177,14 +201,19 @@ const ProjectDetail = async ({ params }: Props) => {
             ))}
           </TabsList>
           <TabsContent value="Case Study" className="py-4">
-            <div className="flex flex-col gap-y-4" dangerouslySetInnerHTML={{ __html: projectDataItem[0].case_study }}></div>
+            <div 
+              className="flex flex-col gap-y-4" 
+              dangerouslySetInnerHTML={
+                { __html: DOMPurify.sanitize(projectDataItem.case_study) }
+              }
+            ></div>
           </TabsContent>
           <TabsContent value="Features" className="py-4">
             <div className="flex flex-col gap-y-2">
               <div className="rounded-3xl px-5 py-8 shadow-sm shadow-gray-500 dark:shadow-primary mx-auto">
                 <h5 className="font-semibold text-xl mb-8 text-center">All Features</h5>
                 <ul className="mx-auto flex flex-col gap-y-4">
-                  {projectDataItem[0].features.map((feature, featureIndex) => (
+                  {projectDataItem.features.map((feature, featureIndex) => (
                     <li 
                       key={featureIndex}
                       className="inline-flex gap-x-2 items-center"

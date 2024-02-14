@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/a11y";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Button } from "../ui/button";
@@ -15,12 +15,38 @@ import TestimonialCard from "../subcomponents/TestimonialCard";
 import SectionTitle from "../subcomponents/SectionTitle";
 
 //types and interfaces
+import { testimonialsType } from "@/types/types";
 
 //data
-import { testimonialData } from "@/utils/data";
+// import { testimonialData } from "@/utils/data";
+async function getData(url:string) {
+  const res = await fetch(url, { cache: "no-store" });
+
+  if(!res.ok) {
+    throw new Error("Something went wrong")
+  }
+
+  return res.json();  
+}
+
 
 const TestimonialsSection = () => {
+  
+  const [testimonialData, setTestimonialData] = useState<testimonialsType | null>(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await getData("https://nate-soul-api.vercel.app/api/testimonials/");
+        setTestimonialData(res.data);
+      } catch(err) {
+        console.error(err);        
+      }
+    };
+
+    fetchData();
+  }, []);
+  
   const [_, setInit] = useState(false);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -55,7 +81,7 @@ const TestimonialsSection = () => {
               autoplay
               className="relative"
             >
-              {testimonialData.length > 0 && testimonialData.map((testimonialItem, testimonialItemIndex) => (
+              {(testimonialData || []).length > 0 && (testimonialData || []).map((testimonialItem, testimonialItemIndex) => (
                 <SwiperSlide key={testimonialItemIndex}>
                   <TestimonialCard testimonial={testimonialItem}/>
                 </SwiperSlide>

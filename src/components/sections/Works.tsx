@@ -1,14 +1,29 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
 import ProjectCard from "../subcomponents/ProjectCard";
 import SectionTitle from "../subcomponents/SectionTitle";
 
 import { ChevronRightIcon } from "lucide-react";
 
-import { projectData } from "@/utils/data";
+import { projectsType } from "@/types/types";
+// import { projectData } from "@/utils/data";
 
-const WorksSection = () => {
+async function getData(url: string) {
+  const res = await fetch(url, { cache: "no-store" });
+
+  if(!res.ok){
+    throw new Error("something went wrong");
+  }
+
+  return res.json();
+}
+
+const WorksSection = async () => {
+
+  const res = await getData("https://nate-soul-api.vercel.app/api/projects");
+  const projectData: projectsType[] = res.data;
 
   return (
     <section id="works" className="py-8 md:py-16 bg-background text-foreground dark:bg-foreground dark:text-background">
@@ -30,8 +45,6 @@ const WorksSection = () => {
               <ProjectCard project={projectItem} key={projectItemIndex} />
             ))
           }
-        </div>
-        <div className="flex justify-end items-center mt-8">
         </div>
       </div>
     </section>

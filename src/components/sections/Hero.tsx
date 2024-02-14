@@ -4,11 +4,26 @@
 // next.js modules
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 //components and uis
 import { Send, FolderClosed, ArrowDown } from "lucide-react";
 
-const Hero = () => {
+async function getData(url: string) {
+  const res = await fetch(url, { cache: "no-store" });
+
+  if(!res.ok) {
+    notFound();
+  }
+
+  return res.json();
+
+}
+
+const Hero = async () => {
+
+  const profileData = await getData("https://nate-soul-api.vercel.app/api/accounts/NSL416/");
+
   return (
     <section id="hero" className="py-16 lg:py-4 relative bg-hero bg-no-repeat bg-center bg-fixed bg-cover dark:bg-hero-dark dark:text-background">
       {/* <motion.div
@@ -23,11 +38,11 @@ const Hero = () => {
       <div className="container flex items-center justify-between gap-x-8">
         <div className="hero-text flex flex-col gap-8 text-center sm:text-left z-10">
           <h1 className="font-bold text-4xl xl:text-5xl capitalize leading-snug">
-            <span className="text-main-100 text-2xl">Hola, I&apos;m Nathanael.</span> <br />
-            Full Stack Software Developer
+            <span className="text-main-100 text-2xl">Hola, I&apos;m {profileData.first_name}.</span> <br />
+            {profileData.profile.headline}
           </h1>
           <p className="font-light text-lg">
-            I leverage technology to help startups, and mid-sized companies transform their innovative ideas into seamless digital solutions with user centricity in mind.
+            {profileData.profile.subheading}
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link
@@ -47,7 +62,7 @@ const Hero = () => {
         <div className="hero-img hidden lg:flex">
           <figure className="relative bg-blob-1-dark dark:bg-blob-1-light bg-no-repeat bg-bottom bg-cover w-[500px] h-[500px] overflow-hidden">
             <Image
-              src="/assets/images/personal/nathanael-ukpong-transparent-bg.png"
+              src={profileData.profile.headshot_url}
               alt="Nathanael Ukpong"
               className="object-contain"
               fill

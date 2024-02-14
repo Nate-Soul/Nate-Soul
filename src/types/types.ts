@@ -21,11 +21,11 @@ export type processesType = {
 
 export type servicesType = {
     id: number,
-    icon_url: string,
     name: string,
     slug: string,
     desc: string,
     icon: string,
+    icon_url: string,
     icon_alt: string,
     priority: number,
     is_active: boolean,
@@ -65,7 +65,7 @@ type tagsType = {
     slug: string
 }
 
-type projectServiceType = {
+type projectCategoryType = {
     id: number;
     name: string;
     slug: string;
@@ -75,7 +75,9 @@ type projectServiceType = {
 type technologiesType = {
     id: number,
     name: string,
-    slug: string
+    slug: string,
+    icon: string,
+    icon_dark?: string,
 }
 
 type featuresType = {
@@ -97,7 +99,8 @@ type imagesType = {
 export type projectsType = {
     id: number,
     tags: tagsType[],
-    services: projectServiceType[],
+    categories: projectCategoryType[],
+    services: servicesType,
     technologies: technologiesType[],
     features: featuresType[],
     images: imagesType[],
@@ -107,7 +110,10 @@ export type projectsType = {
     case_study: string,
     link?: string | null,
     github?: string | null,
+    type: string,
+    status: string,
+    priority: number,
     is_active: boolean,
     created_at: string,
-    modified_at: string
-}[];
+    modified_at: string,
+};

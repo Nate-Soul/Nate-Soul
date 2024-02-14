@@ -18,11 +18,11 @@ export interface TestimonialCardProps {
 
 export interface ServiceProps {
     id: number;
-    icon_url: string;
     name: string;
     slug: string;
     desc: string;
     icon: string;
+    icon_url: string;
     icon_alt: string;
     priority: number;
     is_active: boolean;
@@ -59,7 +59,7 @@ interface TagsProps {
     slug: string
 }
 
-interface ServicesProps {
+interface CategoriesProps {
     id: number;
     name: string;
     slug: string;
@@ -69,7 +69,9 @@ interface ServicesProps {
 interface TechnologiesProps {
     id: number;
     name: string;
-    slug: string
+    slug: string;
+    icon: string;
+    icon_dark?: string;
 }
 
 interface FeaturesProps {
@@ -91,7 +93,8 @@ interface ImagesProps {
 export interface ProjectProps {
     id: number;
     tags: TagsProps[];
-    services: ServicesProps[];
+    categories: CategoriesProps[];
+    services: ServiceProps[];
     technologies: TechnologiesProps[];
     features: FeaturesProps[];
     images: ImagesProps[];
@@ -101,6 +104,9 @@ export interface ProjectProps {
     case_study: string;
     link?: string | null;
     github?: string | null;
+    type: string;
+    status: string;
+    priority: number;
     is_active: boolean;
     created_at: string;
     modified_at: string;

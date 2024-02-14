@@ -7,7 +7,21 @@ import ContactForm from "../subcomponents/ContactForm";
 import Socials from "../subcomponents/Socials";
 import { MailIcon, HomeIcon, PhoneCall } from "lucide-react";
 
-const ContactSection = () => {
+async function getData(url: string) {
+
+  const res = await fetch(url, { cache: "no-store" });
+
+  if(!res.ok){
+    throw new Error("Something went wrong");
+  }
+
+  return res.json();
+}
+
+const ContactSection = async () => {
+
+  const profileData = await getData("https://nate-soul-api.vercel.app/api/accounts/NSL416/");
+
   return (
     <section id="contact" className="py-16 bg-background dark:bg-foreground text-foreground dark:text-background">
       <div className="container">
@@ -27,16 +41,16 @@ const ContactSection = () => {
             </p>
             <div className="wrapper flex gap-x-5 items-center">
               <MailIcon size={18} className="text-primary"/>
-              <Link href="mailto:natesoul.dev@gmail.com">natesoul.dev@gmail.com</Link>
+              <Link href={`mailto:${profileData.email}`}>{profileData.email}</Link>
             </div>
             <div className="wrapper flex gap-x-5 items-center">
               <PhoneCall size={18} className="text-primary"/>
-              <Link href="tel:+2347086752038">+234 708 675 2038</Link>
+              <Link href={`tel:${profileData.profile.phone}`}>{profileData.profile.phone}</Link>
             </div>
             <div className="wrapper flex gap-x-5 items-center">
               <HomeIcon size={18} className="text-primary"/>
               <address>
-                Port Harcourt, Rivers, Nigeria.
+                {profileData.profile.address}.
               </address>
             </div>
             <div className="wrapper">

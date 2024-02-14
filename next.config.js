@@ -10,6 +10,14 @@ const nextConfig = {
                 protocol: "http",
                 hostname: "127.0.0.1"
             },
+            {
+                protocol: "https",
+                hostname: "nate-soul-api.vercel.app"
+            },
+            {
+                protocol: "https",
+                hostname: "res.cloudinary.com"
+            }
         ],
     }
 }

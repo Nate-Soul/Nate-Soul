@@ -1,10 +1,25 @@
 import ServiceCard from "../subcomponents/ServiceCard";
 import SectionTitle from "../subcomponents/SectionTitle";
+import { notFound } from "next/navigation";
 
-import { serviceData } from "@/utils/data";
+import { servicesType } from "@/types/types";
+// import { serviceData } from "@/utils/data";
+
+async function getData(url: string) {
+  const res = await fetch(url, { cache: "no-store" });
+
+  if(!res.ok){
+    notFound();
+  }
+
+  return res.json();
+}
 
 
-const ServicesSection = () => {
+const ServicesSection = async () => {
+
+  const res = await getData("https://nate-soul-api.vercel.app/api/services");
+  const serviceData: servicesType = res.data;
 
   return (
     <section id="services" className="py-16 bg-background text-foreground dark:bg-foreground dark:text-background">

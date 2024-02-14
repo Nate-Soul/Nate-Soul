@@ -59,9 +59,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </CardHeader>
       <CardContent className="h-full px-8 py-6 flex flex-col gap-y-2">
         <div className="flex gap-x-2 items-center">
-        {project.services.map(projectService => (
-          <Badge variant="destructive" className="uppercase font-medium text-xs z-10" key={projectService.id}>
-            {projectService.name}
+        {project.categories.map(projectCat => (
+          <Badge variant="destructive" className="uppercase font-medium text-xs z-10" key={projectCat.id}>
+            {projectCat.name}
           </Badge>
         ))}
         </div>

@@ -26,6 +26,7 @@ const Projects: React.FC = () => {
   const [projectData, setProjectData] = useState<projectsType[] | null>(null);
   const [selectedProjectType, setSelectedProjectType]   = useState<string>("all");
   const [tabTypes, setTabTypes] = useState<string[]>(["all"]);
+  const [tabTypesLength, setTabTypesLength] = useState<number>(tabTypes.length);
   const [filteredProjects, setFilteredProjects] = useState<projectsType[]>([]);
 
 
@@ -66,6 +67,7 @@ const Projects: React.FC = () => {
     };
 
     updateTabTypes();
+    setTabTypesLength(tabTypes.length);
   }, [projectData]);
 
   return (
@@ -82,7 +84,7 @@ const Projects: React.FC = () => {
           (projectData || []).length > 0 ? (
           <Tabs defaultValue={selectedProjectType}>
             <TabsList 
-              className={`w-full h-full lg:max-w-[640px] grid md:grid-cols-${tabTypes.length} gap-y-4 md:gap-y-0 mb-12 mx-auto`}
+              className={`w-full h-full lg:max-w-[640px] grid md:grid-cols-${tabTypesLength} gap-y-4 md:gap-y-0 mb-12 mx-auto`}
             >
             {tabTypes.map((tabItem, tabItemIndex) => (
               <TabsTrigger 

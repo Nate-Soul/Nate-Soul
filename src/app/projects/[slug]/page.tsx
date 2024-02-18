@@ -24,7 +24,7 @@ async function getData(url: string, slug?: string) {
   let res;
 
   if (slug) {
-    res = await fetch(`${url}/${slug}`);
+    res = await fetch(`${url}/${slug}`, { cache: "no-store" });
   } else {
     res = await fetch(url, { cache: "no-store" });
   }
@@ -40,7 +40,7 @@ type Props = {
   params: {
     slug: string
   }
-}
+};
 
 export async function generateMetadata ({ params }: Props): Promise<Metadata> {
   const project: projectsType = await getData("https://nate-soul-api.vercel.app/api/projects", params.slug);

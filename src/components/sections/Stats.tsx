@@ -18,13 +18,13 @@ const Stats = () => {
     {
       id: 2,
       name: "Completed Projects",
-      amount: 10,
+      amount: 12,
       icon: <CheckCircle size={30} />,
     },
     {
       id: 3,
       name: "Years of Experience",
-      amount: 3,
+      amount: 4,
       icon: <Calendar size={30} />,
     },
 ];

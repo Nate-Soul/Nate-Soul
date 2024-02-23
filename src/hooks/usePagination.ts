@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 
-
-const usePagination = (totalItems, itemsPerPage = 10) => {
+const usePagination = (totalItems: number, itemsPerPage: number = 10) => {
 
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -20,7 +19,7 @@ const usePagination = (totalItems, itemsPerPage = 10) => {
         canGoPrev ? setCurrentPage((prev) => prev - 1) : setCurrentPage(1);
     };
 
-    const goToPage = (page) => {
+    const goToPage = (page: number) => {
         if (page >= 1 && page <= totalPages) {
             setCurrentPage(page);
         } else {

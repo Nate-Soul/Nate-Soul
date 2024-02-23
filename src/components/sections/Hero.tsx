@@ -4,7 +4,6 @@
 // next.js modules
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 //components and uis
 import { Send, FolderClosed, ArrowDown } from "lucide-react";
@@ -13,7 +12,7 @@ async function getData(url: string) {
   const res = await fetch(url, { cache: "no-store" });
 
   if(!res.ok) {
-    notFound();
+    throw new Error("Something went wrong while loading page hero. Please try again later.");
   }
 
   return res.json();

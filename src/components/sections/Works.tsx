@@ -41,7 +41,7 @@ const WorksSection = async () => {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {
-            projectData.length > 0 && projectData.slice(0,3).map((projectItem, projectItemIndex) => (
+            projectData.length > 0 && projectData.sort((a,b) => a.priority - b.priority).slice(0,3).map((projectItem, projectItemIndex) => (
               <ProjectCard project={projectItem} key={projectItemIndex} />
             ))
           }

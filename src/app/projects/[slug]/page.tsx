@@ -20,14 +20,8 @@ import { EyeIcon, GithubIcon, CheckIcon } from "lucide-react";
 import ProjectCard from "@/components/subcomponents/ProjectCard";
 import { projectsType } from "@/types/types";
 
-async function getData(url: string, slug?: string) {
-  let res;
-
-  if (slug) {
-    res = await fetch(`${url}/${slug}`, { cache: "no-store" });
-  } else {
-    res = await fetch(url, { cache: "no-store" });
-  }
+async function getData(url: string) {
+  const res = await fetch(url, { cache: "no-store" });
 
   if(!res.ok){
     return notFound();
@@ -43,7 +37,7 @@ type Props = {
 };
 
 export async function generateMetadata ({ params }: Props): Promise<Metadata> {
-  const project: projectsType = await getData("https://nate-soul-api.vercel.app/api/projects", params.slug);
+  const project: projectsType = await getData(`https://nate-soul-api.vercel.app/api/projects/${params.slug}`);
   return {
     title: `${project.name}'s Project Case Study`,
     description: project.excerpt,
@@ -54,20 +48,12 @@ export async function generateMetadata ({ params }: Props): Promise<Metadata> {
 
 const ProjectDetail = async ({ params }: Props) => {
 
-  const projectDataItem: projectsType = await getData("https://nate-soul-api.vercel.app/api/projects", params.slug);
-  const projectRes                    = await getData("https://nate-soul-api.vercel.app/api/projects");
-  const projectData: projectsType[]   = projectRes.data;
+  const projectDataItem: projectsType   = await getData(`https://nate-soul-api.vercel.app/api/projects/${params.slug}`);
+  const relatedProjectRes               = await getData(`https://nate-soul-api.vercel.app/api/projects/${params.slug}/related/`);
+  const relatedProjects: projectsType[] = relatedProjectRes.data;
 
   const window = new JSDOM("").window;
   const purify = DOMPurify(window);
-
-  const relatedProjects = projectData.filter(
-    project => projectDataItem.services.some(service => 
-      project.services.some(originalService => 
-        originalService.name === service.name
-      ) && (project.slug !== projectDataItem.slug)
-    )
-  );
 
   const tabDisplays = [
     {

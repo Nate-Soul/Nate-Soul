@@ -41,7 +41,10 @@ const Projects: React.FC = () => {
   const totalPages    = Math.ceil(projectsCount / itemsPerPage);
   const searchParams = useSearchParams();
   const pageParamString = searchParams.get("page");
-  const pageParam: number = (pageParamString !== null && !isNaN(parseInt(pageParamString)) && parseInt(pageParamString) < totalPages) ? parseInt(pageParamString) : 1;
+  const pageParam: number = (
+    (pageParamString !== null) && !isNaN(parseInt(pageParamString)) && (totalPages >= parseInt(pageParamString))) ? 
+    parseInt(pageParamString) : 
+    1;
 
 
   useEffect( () => {

@@ -23,7 +23,7 @@ async function getData(url: string) {
 const WorksSection = async () => {
 
   const res = await getData("https://nate-soul-api.vercel.app/api/projects");
-  const projectData: projectsType[] = res.data;
+  const projectData: projectsType[] = res.results;
 
   return (
     <section id="works" className="py-8 md:py-16 bg-background text-foreground dark:bg-foreground dark:text-background">

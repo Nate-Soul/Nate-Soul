@@ -1,55 +1,88 @@
-import { usePagingContext } from "@/context/PagingContext";
+import Link from "next/link";
+import { ChevronRightIcon, ChevronLeftIcon } from "lucide-react";
 
-const PaginationBar = () => {
+interface PaginationBarProps {
+    itemsCount: number;
+    prevURL: string | null;
+    nextURL: string | null;
+    currentPageParam: number;
+    itemsPerPage: number;
+    totalPages: number;
+}
 
-  const { 
-    totalPages, 
-    canGoNext, 
-    canGoPrev, 
-    currentPage, 
-    goToNext, 
-    goToPage, 
-    goToPrev 
-  } = usePagingContext();
+
+const PaginationBar: React.FC<PaginationBarProps> = (
+    { 
+        itemsCount, 
+        prevURL, 
+        nextURL, 
+        currentPageParam, 
+        itemsPerPage, 
+        totalPages
+    }
+    ) => {
+
+    let currentPage = currentPageParam;
+
+    const limit         = currentPage * itemsPerPage;
+    const offset        = ((currentPage - 1) * itemsPerPage) + 1;
+
+    const goToPage = (page: number) => {
+        if (page >= 1 && page <= totalPages) {
+            return page;
+        } else {
+            return 1;
+        }
+    };
+
+    const getPageNumber = (url: string) => {
+        const searchParams = new URLSearchParams(new URL(url).search);
+        const pageParamString = searchParams.get("page");
+        
+        // Convert pageParamString to a number if it's not null
+        const pageParam = pageParamString !== null ? parseInt(pageParamString) : 1;
+
+        return pageParam;
+    }
 
   return (
-    <div className="flex items-center justify-between mt-12">
-      <nav>
-        <ul className="flex items-center">
-            <li className="page-item">
-                <button 
-                    className="page-link rounded-s-3xl" 
-                    onClick={goToPrev} 
-                    disabled={!canGoPrev}
+    <div className="flex flex-col gap-4 items-center justify-center sm:justify-between sm:flex-row mt-12">
+        <nav>
+            <ul className="flex items-center">
+                <li className="page-item">
+                    <Link 
+                        href={prevURL ? `/projects/?page=${getPageNumber(prevURL)}` : "#"} 
+                        className="page-link rounded-s-3xl">
+                        <ChevronLeftIcon size={20}/>
+                    </Link>
+                </li>
+                { Array.from({length: totalPages}, (_, index) => (
+                <li 
+                    className="page-item"
+                    key={index}
                 >
-                    <span className="bi bi-chevron-left"></span>
-                </button>
-            </li>
-            { Array.from({length: totalPages}, (_, index) => (
-            <li 
-                className="page-item"
-                key={index}
-            >
-                <button 
-                    className={`page-link ${currentPage === index + 1 ? 'active' : '' }`}
-                    onClick={() => goToPage(index + 1)}
-                >
-                    {index + 1}
-                </button>
-            </li>))
-            }
-            <li className="page-item">
-                <button 
-                    className="page-link rounded-e-3xl" 
-                    onClick={goToNext} 
-                    disabled={!canGoNext}
-                >
-                    <span className="bi bi-chevron-right"></span>
-                </button>
-            </li>
-        </ul>
-      </nav>
-      <p className="text-gray-600 text-sm">Showing <span>0</span> to <span>5</span> of <span>2000</span> Results</p>
+                    <Link 
+                        href={`/projects/?page=${goToPage(index + 1)}`}
+                        className={`page-link ${currentPage === index + 1 ? 'active' : '' }`}
+                    >
+                        {index + 1}
+                    </Link>
+                </li>))
+                }
+                <li className="page-item">
+                    <Link 
+                        href={nextURL ? `/projects/?page=${getPageNumber(nextURL)}` : "#"}
+                        className="page-link rounded-e-3xl">
+                        <ChevronRightIcon size={20}/>
+                    </Link>
+                </li>
+            </ul>
+        </nav>
+        <p className="text-gray-600 text-sm">
+            Showing <span>{offset}</span>
+            {limit < itemsCount && (<span> to {limit}</span>)}
+            <span> of {itemsCount} Results</span> 
+        </p>
     </div>
   )
 }

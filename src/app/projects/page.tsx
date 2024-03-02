@@ -1,14 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
 
-// import { PagingContextProvider } from "@/context/PagingContext";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 import CTABanner from "@/components/sections/CTABanner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import SectionTitle from "@/components/subcomponents/SectionTitle";
 import ProjectCard from "@/components/subcomponents/ProjectCard";
-// import PaginationBar from "@/components/subcomponents/PaginationBar";
+import PaginationBar from "@/components/subcomponents/PaginationBar";
 
 // import { projectData } from "@/utils/data";
 import { projectsType } from "@/types/types";
@@ -28,25 +28,38 @@ async function getData(url: string) {
 
 const Projects: React.FC = () => {
 
+  const [projectsNextURL, setProjectsNextURL] = useState<string | null>(null);
+  const [projectsPrevURL, setProjectsPrevURL] = useState<string | null>(null);
+  const [projectsCount, setProjectsCount] = useState<number>(0);
   const [projectData, setProjectData] = useState<projectsType[] | null>(null);
   const [selectedProjectType, setSelectedProjectType]   = useState<string>("all");
   const [tabTypes, setTabTypes] = useState<string[]>(["all"]);
-  const [tabTypesLength, setTabTypesLength] = useState<number>(tabTypes.length);
   const [filteredProjects, setFilteredProjects] = useState<projectsType[]>([]);
+
+  
+  const itemsPerPage  = 12;
+  const totalPages    = Math.ceil(projectsCount / itemsPerPage);
+  const searchParams = useSearchParams();
+  const pageParamString = searchParams.get("page");
+  const pageParam: number = (pageParamString !== null && !isNaN(parseInt(pageParamString)) && parseInt(pageParamString) < totalPages) ? parseInt(pageParamString) : 1;
 
 
   useEffect( () => {
     const fetchData = async () => {
       try {
-        const getProjects = await getData("https://nate-soul-api.vercel.app/api/projects/");
-        setProjectData(getProjects.data);
+        const getProjects = await getData(`https://nate-soul-api.vercel.app/api/projects/?page=${pageParam}`);
+        // const getProjects = await getData(`http://127.0.0.1:8000/api/projects/?page=${pageParam}`);
+        setProjectData(getProjects.results);
+        setProjectsCount(getProjects.count);
+        setProjectsNextURL(getProjects.next);
+        setProjectsPrevURL(getProjects.previous);
       } catch (error) {
         console.log("ERROR FETCHING DATA: ", error)
       }
     };
     
     fetchData();
-  }, []);
+  }, [pageParam]);
 
   useEffect(() => {
 
@@ -68,11 +81,11 @@ const Projects: React.FC = () => {
       const uniqueTypes = Array.from(new Set(allTypes));
     
       // remove duplicate categories
-      setTabTypes(["all", ...uniqueTypes]);
+      const types = ["all", ...uniqueTypes];
+      setTabTypes(types);
     };
 
     updateTabTypes();
-    setTabTypesLength(tabTypes.length);
   }, [projectData]);
 
   return (
@@ -90,14 +103,14 @@ const Projects: React.FC = () => {
             (projectData || []).length > 0 ? (
             <Tabs defaultValue={selectedProjectType}>
               <TabsList 
-                className={`w-full h-full lg:max-w-[640px] grid md:grid-cols-${tabTypesLength} gap-y-4 md:gap-y-0 mb-12 mx-auto`}
+                className={`w-full h-full lg:max-w-[640px] flex flex-col items-center justify-center gap-y-4 md:flex-row md:gap-y-0 mb-12 mx-auto`}
               >
               {tabTypes.map((tabItem, tabItemIndex) => (
                 <TabsTrigger 
                   onClick={() => setSelectedProjectType(tabItem)}
                   value={tabItem} 
                   key={tabItemIndex} 
-                  className={`capitalize project-tab-trigger`}
+                  className={`capitalize px-8 py-2 project-tab-trigger`}
                 >
                   {tabItem}
                 </TabsTrigger>
@@ -113,7 +126,17 @@ const Projects: React.FC = () => {
             </Tabs> ) : (
             <p> Loading projects... </p>
           )}
-          {/* <PaginationBar/> */}
+          {selectedProjectType === "all" && (
+            <PaginationBar 
+              itemsPerPage={itemsPerPage}
+              totalPages={totalPages}
+              itemsCount={projectsCount} 
+              prevURL={projectsPrevURL}
+              nextURL={projectsNextURL}
+              currentPageParam={pageParam}
+            />
+          )
+        }
         </div>
       </section>
     {/* </PagingContextProvider> */}

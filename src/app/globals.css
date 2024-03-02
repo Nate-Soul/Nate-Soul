@@ -122,3 +122,10 @@
 .form-control-theme {
   @apply bg-background dark:bg-gray-700 text-foreground dark:text-background;
 }
+
+.page-link{
+  @apply h-10 w-10 inline-flex justify-center items-center border border-gray-300 bg-transparent hover:bg-primary hover:border-transparent hover:text-background;
+}
+.page-link.active{
+  @apply border-transparent bg-primary text-background hover:bg-primary hover:text-white hover:border-accent;
+}

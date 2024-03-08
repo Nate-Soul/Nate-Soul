@@ -1,9 +1,15 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import 'react-loading-skeleton/dist/skeleton.css'
 import './globals.css'
+
+//provider
+import { ThemeProvider } from '@/context/ThemeContext'
+import { Analytics } from '@vercel/analytics/react'
+
+//components
 import MainHeader from '@/components/MainHeader'
 import MainFooter from '@/components/MainFooter'
-import { ThemeProvider } from '@/context/ThemeContext'
 import FloatingComponents from '@/components/FloatingComponents'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -32,6 +38,7 @@ export default function RootLayout({
           <MainFooter/>
           <FloatingComponents/>
         </ThemeProvider>
+        <Analytics/>
       </body>
     </html>
   )

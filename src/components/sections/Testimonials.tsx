@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Pagination, Navigation } from "swiper/modules";
 import TestimonialCard from "../subcomponents/TestimonialCard";
 import SectionTitle from "../subcomponents/SectionTitle";
+// import TestimonialCardSkeleton from "../subcomponents/TestimonialCardSkeleton";
 
 //types and interfaces
 import { testimonialsType } from "@/types/types";
@@ -37,6 +38,7 @@ const TestimonialsSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // const res = await getData("http://localhost:8000/api/testimonials/");
         const res = await getData("https://nate-soul-api.vercel.app/api/testimonials/");
         setTestimonialData(res.data);
       } catch(err) {

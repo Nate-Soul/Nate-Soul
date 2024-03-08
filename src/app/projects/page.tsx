@@ -12,6 +12,7 @@ import PaginationBar from "@/components/subcomponents/PaginationBar";
 
 // import { projectData } from "@/utils/data";
 import { projectsType } from "@/types/types";
+import ProjectCardSkeleton from "@/components/subcomponents/ProjectCardSkeleton";
 
 async function getData(url: string) {
   const res = await fetch(url, 
@@ -93,7 +94,6 @@ const Projects: React.FC = () => {
 
   return (
     <>
-    {/* <PagingContextProvider totalItems={projectData?.length || 0} itemsPerPage={12}> */}
       <section className="py-12 pb-16 bg-background text-foreground dark:bg-foreground dark:text-background">
         <div className="container">
           <SectionTitle 
@@ -127,7 +127,9 @@ const Projects: React.FC = () => {
               ))}
               </div>
             </Tabs> ) : (
-            <p> Loading projects... </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <ProjectCardSkeleton cards={12} />
+            </div>
           )}
           {selectedProjectType === "all" && (
             <PaginationBar 
@@ -142,7 +144,6 @@ const Projects: React.FC = () => {
         }
         </div>
       </section>
-    {/* </PagingContextProvider> */}
     <CTABanner 
       heading="Inspired by what you see?" 
       subtext="Let's turn your inspiration into reality. Your Vision, my expertise, and a tailored approach that sets your project apart. Ready to make it happen?" 

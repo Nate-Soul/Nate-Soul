@@ -10,7 +10,6 @@ interface PaginationBarProps {
     totalPages: number;
 }
 
-
 const PaginationBar: React.FC<PaginationBarProps> = (
     { 
         itemsCount, 

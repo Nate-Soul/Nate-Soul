@@ -1,3 +1,5 @@
+import React from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +12,6 @@ import {
 } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { EyeIcon, GithubIcon, PlusCircleIcon } from "lucide-react";
-import React from "react";
 
 //interfaces and types
 import { ProjectCardProps } from "@/types/interfaces";

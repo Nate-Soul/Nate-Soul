@@ -9,7 +9,7 @@ import { MailIcon, HomeIcon, PhoneCall } from "lucide-react";
 
 async function getData(url: string) {
 
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetch(url, { next: { revalidate: 43200 } });
 
   if(!res.ok){
     throw new Error("Something went wrong");

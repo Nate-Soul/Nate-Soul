@@ -1,13 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Send, DownloadIcon } from "lucide-react";
+//motion
+import * as motion from "@/utils/motionDefs";
+import { slideIn, staggerContainer } from "@/utils/motion";
 
-import SectionTitle from "../subcomponents/SectionTitle"; 
+//components
+import { Send, DownloadIcon } from "lucide-react";
+import SectionTitle from "../subcomponents/SectionTitle";
 
 async function getData(url: string) {
 
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetch(url, { next: { revalidate: 43200 } });
 
   if(!res.ok){
    throw new Error("something went wrong");
@@ -19,12 +23,19 @@ async function getData(url: string) {
 const AboutSection = async () => {
 
   const profileData = await getData("https://nate-soul-api.vercel.app/api/accounts/NSL416/");
+  // const profileData = await getData("http://localhost:8000/api/accounts/natesoul/");
 
   return (
     <section id="about" className="py-16 bg-background dark:bg-foreground text-foreground dark:text-white">
-      <div className="container grid lg:grid-cols-2 items-center gap-5">
-        <figure 
+      <motion.div 
+        className="container grid lg:grid-cols-2 items-center gap-5"
+        variants={staggerContainer(0.25, 0.5)}
+        initial="hidden"
+        whileInView="show"
+      >
+        <motion.figure 
           className="about-img mx-auto h-auto w-4/5 lg:h-[500px] lg:w-[500px] rounded-full border-4 border-gray-300 dark:border-primary overflow-hidden"
+          variants={slideIn("left", "tween", 0.25, 0.5)}
         >
           <Image 
             src={profileData.profile.profile_img_url} 
@@ -33,8 +44,11 @@ const AboutSection = async () => {
             height={500} 
             className="w-full h-auto object-contain"
           />
-        </figure>
-        <div className="about-text">
+        </motion.figure>
+        <motion.div 
+          className="about-text"
+          variants={slideIn("right", "tween", 0.25, 0.5)}
+        >
           <SectionTitle 
             containerStyles="text-center lg:text-left mb-8"
             title="About Me" 
@@ -59,8 +73,8 @@ const AboutSection = async () => {
               </Link>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

@@ -7,13 +7,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // framer motion
-// import { motion } from "framer-motion";
-// import { navVariants } from "@/utils/motion";
+import { motion } from "framer-motion";
+import { navVariants } from "@/utils/motion";
 
 //components and uis
 import Logo from "@/components/Logo";
 import MobileMenu from "./subcomponents/MobileMenu";
-import { Button } from "./ui/button";
 import { Send } from "lucide-react";
 
 //types and interfaces
@@ -52,13 +51,12 @@ const Navbar = () => {
   const currentPage = usePathname();
 
   return (
-    // <motion.nav  
-    //   variants={navVariants}
-    //   initial="hidden"
-    //   whileInView="show"
-    //   className="py-4"
-    // >
-    <nav className={`py-4 bg-inherit`}>
+    <motion.nav 
+      variants={navVariants}
+      initial="hidden"
+      whileInView="show"
+      className={`py-4 bg-inherit`}
+    >
       <div className="container flex items-center justify-between">
         <Logo/>
         <ul className="hidden md:flex items-center gap-6">
@@ -79,8 +77,7 @@ const Navbar = () => {
           <MobileMenu/>
         </div>
       </div>
-    </nav>
-    // </motion.nav>
+    </motion.nav>
   )
 }
 

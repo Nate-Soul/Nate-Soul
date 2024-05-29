@@ -38,6 +38,7 @@ const Socials = ({ iconSize, containerStyles }: SocialsParam) => {
     const fetchData = async () => {
       try {
         const res = await getData("https://nate-soul-api.vercel.app/api/accounts/NSL416/");
+        // const res = await getData("http://loaclhost:8000/api/accounts/NSL416/");
         setSocialLinks(res.profile.social);
       } catch (error) {
         console.error(error);

@@ -18,3 +18,13 @@ export type navVariantsType = {
         };
     };
 }
+
+export type staggerContainerType = {
+    hidden: {};
+    show: {
+        transition: {
+            staggerChildren: number;
+            delayChildren: number;
+        };
+    };
+}

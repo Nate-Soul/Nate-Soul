@@ -1,15 +1,19 @@
+//motion
+import * as motion from "@/utils/motionDefs";
+import { slideIn } from "@/utils/motion";
+
+//components
 import ServiceCard from "../subcomponents/ServiceCard";
 import SectionTitle from "../subcomponents/SectionTitle";
-import { notFound } from "next/navigation";
 
 import { servicesType } from "@/types/types";
 // import { serviceData } from "@/utils/data";
 
 async function getData(url: string) {
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetch(url, { next: { revalidate: 43200 } });
 
   if(!res.ok){
-    notFound();
+    throw new Error("Error in Network response");
   }
 
   return res.json();
@@ -19,6 +23,7 @@ async function getData(url: string) {
 const ServicesSection = async () => {
 
   const res = await getData("https://nate-soul-api.vercel.app/api/services");
+  // const res = await getData("http://localhost:8000/api/services");
   const serviceData: servicesType = res.data;
 
   return (
@@ -29,7 +34,12 @@ const ServicesSection = async () => {
         extendedTitle="Digital Solutions Tailored for You"
         page={false}
       />
-      <div className="container grid sm:grid-cols-2 lg:grid-cols-3 justify-center content-center gap-4">
+      <motion.div 
+        className="container grid sm:grid-cols-2 lg:grid-cols-3 justify-center content-center gap-4"
+        variants={slideIn("up", "tween", 0.3, 0.5)}
+        initial="hidden"
+        animate="show"
+      >
         {
           serviceData.length > 0 
             && serviceData.sort((a,b) => a.priority - b.priority)
@@ -37,7 +47,7 @@ const ServicesSection = async () => {
             <ServiceCard service={serviceItem} key={serviceItemIndex}/>
           ))
         }
-      </div>
+      </motion.div>
     </section>
   )
 }

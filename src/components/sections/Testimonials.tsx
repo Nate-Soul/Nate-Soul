@@ -21,7 +21,7 @@ import { testimonialsType } from "@/types/types";
 //data
 // import { testimonialData } from "@/utils/data";
 async function getData(url:string) {
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetch(url, { next: { revalidate: 43200 } });
 
   if(!res.ok) {
     throw new Error("Something went wrong")
@@ -38,8 +38,8 @@ const TestimonialsSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const res = await getData("http://localhost:8000/api/testimonials/");
         const res = await getData("https://nate-soul-api.vercel.app/api/testimonials/");
+        // const res = await getData("http://localhost:8000/api/testimonials/");
         setTestimonialData(res.data);
       } catch(err) {
         console.error(err);        

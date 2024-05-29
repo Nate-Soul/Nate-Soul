@@ -6,19 +6,23 @@ import { Smile, CheckCircle, Calendar } from "lucide-react";
 import { statsType } from "@/types/types";
 // import { statData } from "@/utils/data";
 
+//framer motion
+import { motion } from "framer-motion";
+import { slideIn } from "@/utils/motion";
+
 const Stats = () => {
 
   const statData: statsType = [
     {
       id: 1,
       name: "Satisfied Clients",
-      amount: 5,
+      amount: 7,
       icon: <Smile size={30} />,
     },
     {
       id: 2,
       name: "Completed Projects",
-      amount: 12,
+      amount: 15,
       icon: <CheckCircle size={30} />,
     },
     {
@@ -33,7 +37,12 @@ const Stats = () => {
   return (
     <div id="stats" className="py-6 bg-background dark:bg-foreground text-foreground dark:text-background">
       <div className="container">
-        <div className="grid grid-cols-12 shadow dark:shadow-primary text-inherit rounded-3xl p-4">
+        <motion.div 
+          className="grid grid-cols-12 shadow dark:shadow-primary text-inherit rounded-3xl p-4"
+          variants={slideIn("up", "spring", 0.2, 0.5)}
+          initial="hidden"
+          whileInView="show"
+        >
           {statData.length > 0 &&
             statData.map((statItem) => (
               <div
@@ -52,7 +61,7 @@ const Stats = () => {
                 </div>
               </div>
             ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

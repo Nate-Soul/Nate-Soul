@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Nathanael Ukpong - Full Stack Software Developer
 
-## Getting Started
+I'm a passionate developer with a focus on crafting exceptional user experiences.
 
-First, run the development server:
+**Specialties:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* Front-End Development (HTML, CSS, SCSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, jQuery)
+* Backend Development (Django/DRF, Node/Express.js, Core PHP)
+* On-page SEO & Accessibility Optimization
+* Full Stack Development with React.js, Redux, Next.js, Angular, React Native
+* Headless CMS integration & RESTful APIs/GraphQL
+* Database Management (SQLite, Firebase, MongoDB, MySQL, PostgreSQL, MariaDB)
+* Version Control (Git/GitHub)
+* Project Management Tools (Jira)
+* Deployment Platforms (Heroku, Netlify, Vercel)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!-- **Project Highlights:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **E-commerce Platform:** (Replace with a brief description of your e-commerce project including key features and technologies used) 
+* **Relocation Platform:** (Replace with a brief description of your relocation platform project including key features and technologies used)  -->
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+**Contact:**
 
-To learn more about Next.js, take a look at the following resources:
+Feel free to reach out to discuss potential projects or collaborations via [email](natesoul.dev@gmail.com)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Let's Connect!**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* [LinkedIn](https://www.linkedin.com/in/nathanael-ukpong)
+* [Twitter](https://x.com/@Nate_ukpong)

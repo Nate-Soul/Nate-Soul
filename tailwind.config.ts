@@ -83,6 +83,9 @@ const config: Config = {
         "blob-1-dark": "url(/assets/images/bg/blob-1-dark.svg)",
         "contact-illustration": "url(/assets/images/icons/customer-service-reps.png)",
         // "gradient-1": "bg-[linear--gradient(0deg,_rgba(103,58,183,1)_0%,_rgba(55,81,133,0.4))]"
+      },
+      screens: {
+        smx: "552px"
       }
     },
   },

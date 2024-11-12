@@ -6,6 +6,7 @@ import TestimonialsSection from "@/components/sections/Testimonials";
 import CreativeProcess from "@/components/sections/CreativeProcess";
 import Stats from "@/components/sections/Stats";
 import CTABanner from "@/components/sections/CTABanner";
+import FeaturedBlog from "@/components/sections/FeaturedBlog";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <ServicesSection/>
       <WorksSection/>
       <TestimonialsSection/>
+      <FeaturedBlog/>
       <CTABanner 
         heading="Transform Ideas Into Impact!"
         subtext="Ready to turn your ideas into reality? Explore my portfolio and envision the possibilities. Let's collaborate on your next digital venture"

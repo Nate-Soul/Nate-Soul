@@ -29,7 +29,7 @@ const CreativeProcess = async () => {
   const processData: processesType = res.data;
 
   return (
-    <section id="creativeProcess" className="py-10 bg-backgroundd dark:bg-foreground text-foreground dark:text-white">
+    <section id="creativeProcess" className="py-10 bg-background dark:bg-foreground text-foreground dark:text-white">
       <motion.div 
         className="container"
         variants={staggerContainer(0.2, 0.5)}

@@ -51,8 +51,6 @@ export interface ProcessCardProps {
     process: ProcessProps;
 }
 
-
-
 interface TagsProps {
     id: number;
     name: string;
@@ -114,4 +112,18 @@ export interface ProjectProps {
   
 export interface ProjectCardProps {
     project: ProjectProps;
+};
+
+export interface ArticleProps {
+    id: number;
+    title: string;
+    slug: string;
+    date: string;
+    excerpt: string;
+    featured: boolean;
+    featuredImgUrl: string;
+};
+
+export interface ArticleCardProps {
+    article: ArticleProps; 
 }

@@ -35,6 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={project.link}
                 className="bg-primary inline-flex items-center justify-center w-12 h-12 rounded-full z-10 scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200"
                 title="Live preview"
+                target="_blank"
               >
                 <EyeIcon size={20} className="text-white" />
               </Link>

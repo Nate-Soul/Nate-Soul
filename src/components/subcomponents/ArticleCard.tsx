@@ -15,7 +15,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, classes }) => {
     <article className={`${classes}`}>
         <figure className="overflow-hidden rounded-xl h-[240px] relative">
             <Image 
-              src={article.featuredImgUrl} 
+              src={article.featuredImgUrl ? article.featuredImgUrl : '/assets/images/unavailable.jpg'} 
               alt={article.title} 
               height={350} width={250} 
               className="w-full h-full object-cover"
@@ -26,7 +26,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, classes }) => {
         </figure>
         <div className="flex flex-col gap-y-4 p-3">
             <Badge variant="destructive" className="text-xs w-max">
-                {article.date}
+                {article.published_date}
             </Badge>
             <p className="text-sm">{article.excerpt}</p>
             <Link href={`blog/${article.slug}`} className="ml-auto inline-flex items-center gap-x-1 text-xs text-primary">

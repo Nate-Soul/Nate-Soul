@@ -40,7 +40,7 @@ const page = () => {
                         />
                     </div>
                     <div className="basis-full sm:basis-1/2 flex flex-col gap-y-3">
-                        <p className="text-xs text-gray-500">{featuredArticle.date}</p>
+                        <p className="text-xs text-gray-500">{featuredArticle.published_date}</p>
                         <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">{featuredArticle.title}</h3>
                         <p className="text-sm">{featuredArticle.excerpt}</p>
                     </div>

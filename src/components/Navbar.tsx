@@ -39,8 +39,8 @@ const Navbar = () => {
       text: "What I do"
     },
     {
-      url: "/#testimonials",
-      text: "Testimonials"
+      url: "/blog",
+      text: "Blog"
     },
     {
       url: "/contact",

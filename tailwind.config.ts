@@ -85,8 +85,9 @@ const config: Config = {
         // "gradient-1": "bg-[linear--gradient(0deg,_rgba(103,58,183,1)_0%,_rgba(55,81,133,0.4))]"
       },
       screens: {
-        smx: "552px"
-      }
+        smx: "552px",
+        xsm: "400px"
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

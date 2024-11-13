@@ -9,7 +9,7 @@ import { navLinksType } from "@/types/types";
 
 //components and ui
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
 import Logo from "../Logo";
 import Socials from "./Socials";
 
@@ -29,6 +29,10 @@ const MobileMenu = () => {
       text: "Projects"
     },
     {
+      url: "/blog",
+      text: "Blog"
+    },
+    {
       url: "#services",
       text: "What I do"
     },
@@ -41,7 +45,7 @@ const MobileMenu = () => {
       text: "Let's Connect"
     },
     {
-      url: "https://drive.google.com/file/d/1KXDbmxWegYspjYG08kgSSuKXjeiDAFE6/view?usp=drive_link",
+      url: "https://docs.google.com/document/d/1eEAxPE_7L9oD-gmAjzjckySuHOSpqYTI9V1koTpovFw/edit?usp=sharing",
       text: "Download Resume"
     }
   ];
@@ -68,7 +72,10 @@ const MobileMenu = () => {
                       </Button> */}
                     </Link>
                     ) : mobileNavLink.text === "Download Resume" && (
-                      <Link href={mobileNavLink.url} className="btn btn-secondary btn-md gap-x-2">
+                      <Link 
+                        href={mobileNavLink.url} 
+                        className="btn btn-secondary btn-md gap-x-2"
+                        >
                           {mobileNavLink.text}
                           <DownloadIcon size={18}/>
                         {/* <Button variant="secondary" className="gap-x-2">

@@ -55,6 +55,8 @@ const Socials = ({ iconSize, containerStyles }: SocialsParam) => {
           <Link 
             key={socialLink.id}
             href={socialLink.link}
+            target="_blank"
+            title={`${socialLink.platform} profile`}
           >
             <Image
               src={(theme === "dark" && socialLink.icon_dark) ? socialLink.icon_dark : socialLink.icon }

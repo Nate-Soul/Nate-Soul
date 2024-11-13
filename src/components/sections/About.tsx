@@ -65,8 +65,9 @@ const AboutSection = async () => {
                 Let's Connect <Send size={18}/>
               </Link>
               <Link 
-                href="https://drive.google.com/file/d/1KXDbmxWegYspjYG08kgSSuKXjeiDAFE6/view?usp=drive_link"
+                href="https://docs.google.com/document/d/1eEAxPE_7L9oD-gmAjzjckySuHOSpqYTI9V1koTpovFw/edit?usp=sharing"
                 className="btn btn-md btn-secondary capitalize gap-x-2"
+                target="_blank"
               >
                   Download Resume
                   <DownloadIcon size={18}/>

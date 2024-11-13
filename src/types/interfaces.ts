@@ -118,10 +118,16 @@ export interface ArticleProps {
     id: number;
     title: string;
     slug: string;
-    date: string;
+    published_date: string;
     excerpt: string;
     featured: boolean;
     featuredImgUrl: string;
+    categories: string[];
+    tags: string[];
+    status: string;
+    content: string;
+    parent_post: null | number;
+    related_posts: number[];
 };
 
 export interface ArticleCardProps {

@@ -137,6 +137,7 @@ const ProjectDetail = async ({ params }: Props) => {
                 href={projectDataItem.link} 
                 className="btn btn-primary btn-md w-full sm:w-max gap-x-2" 
                 title="Live preview"
+                target="_blank"
               >
                 Live Preview <EyeIcon size={20}/>
               </Link>)

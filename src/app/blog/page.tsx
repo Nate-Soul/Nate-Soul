@@ -5,6 +5,7 @@ import ArticleCard from "@/components/subcomponents/ArticleCard";
 import SectionTitle from "@/components/subcomponents/SectionTitle";
 import { blogPosts } from "@/mock-database/blog";
 import CTABanner2 from "@/components/sections/CTABanner2";
+import { ArrowUpRight } from "lucide-react";
 
 const page = () => {
 
@@ -43,6 +44,13 @@ const page = () => {
                         <p className="text-xs text-gray-500">{featuredArticle.published_date}</p>
                         <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">{featuredArticle.title}</h3>
                         <p className="text-sm">{featuredArticle.excerpt}</p>
+                        <Link 
+                            href={`/blog/${featuredArticle.slug}`}
+                            className="btn btn-sm btn-primary w-max gap-x-1"
+                        >
+                            Read Post
+                            <ArrowUpRight/>
+                        </Link>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 smx:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

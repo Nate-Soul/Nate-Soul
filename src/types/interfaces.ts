@@ -114,20 +114,21 @@ export interface ProjectCardProps {
     project: ProjectProps;
 };
 
+type ArticleStatus = 'draft' | 'published' | 'archived';
+
 export interface ArticleProps {
     id: number;
     title: string;
     slug: string;
-    published_date: string;
-    excerpt: string;
+    excerpt?: string | null;
+    featured_img_url: string;
+    tags: TagsProps[];
+    status: ArticleStatus;
+    content?: string | null;
+    parent_post?: number | null;
     featured: boolean;
-    featuredImgUrl: string;
-    categories: string[];
-    tags: string[];
-    status: string;
-    content: string;
-    parent_post: null | number;
-    related_posts: number[];
+    published_date: string;
+    modified_date: string;
 };
 
 export interface ArticleCardProps {

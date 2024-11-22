@@ -3,13 +3,30 @@ import Link from "next/link";
 
 import ArticleCard from "@/components/subcomponents/ArticleCard";
 import SectionTitle from "@/components/subcomponents/SectionTitle";
-import { blogPosts } from "@/mock-database/blog";
 import CTABanner2 from "@/components/sections/CTABanner2";
 import { ArrowUpRight } from "lucide-react";
+import { ArticleProps } from "@/types/interfaces";
 
-const page = () => {
+async function getData(url: string) {
+    const res = await fetch(url, 
+      { cache: "no-store" }
+    );
+  
+    if (!res.ok) {
+      throw new Error("An error occured while trying to fetch projects...");
+    }
+  
+    return res.json();
+}
 
-    const featuredArticle = blogPosts[0];
+const page = async () => {
+    
+  const blogAPIURL = process.env.NODE_ENV === "development" 
+  ? "http://localhost:8000/api/blog"
+  : "https://nate-soul-api.vercel.app/api/blog";
+    const getArticles                   = await getData(blogAPIURL);
+    const blogPosts: ArticleProps[]     = getArticles.results;
+    const featuredArticle: ArticleProps = blogPosts[0];
 
   return (
     <>
@@ -33,7 +50,7 @@ const page = () => {
                 <div className="flex flex-wrap sm:flex-nowrap items-center gap-8 mb-12">
                     <div className="flex-shrink-0 basis-full sm:basis-1/2 h-auto lg:h-[355px] overflow-hidden rounded-3xl">
                         <Image 
-                            src={featuredArticle.featuredImgUrl} 
+                            src={featuredArticle.featured_img_url || '/assets/images/unavailable.jpg'} 
                             width={578} 
                             height={355} 
                             className="w-full h-full object-cover"
@@ -43,7 +60,7 @@ const page = () => {
                     <div className="basis-full sm:basis-1/2 flex flex-col gap-y-3">
                         <p className="text-xs text-gray-500">{featuredArticle.published_date}</p>
                         <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">{featuredArticle.title}</h3>
-                        <p className="text-sm">{featuredArticle.excerpt}</p>
+                        <p className="text-sm">{featuredArticle?.excerpt}</p>
                         <Link 
                             href={`/blog/${featuredArticle.slug}`}
                             className="btn btn-sm btn-primary w-max gap-x-1"
@@ -54,7 +71,7 @@ const page = () => {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 smx:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {blogPosts.slice(1).map((blogPost, blogPostIndex) => (
+                {blogPosts?.slice(1)?.map((blogPost, blogPostIndex) => (
                     <ArticleCard article={blogPost} key={blogPostIndex} />
                 ))}
                 </div>

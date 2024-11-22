@@ -1,8 +1,15 @@
+import { Metadata } from "next";
 import Image from "next/image";
-import { blogPosts } from "@/mock-database/blog";
 import { notFound } from "next/navigation";
+import moment from "moment";
+
 import { Badge } from "@/components/ui/badge";
-import { FacebookIcon, LinkedinIcon, ShareIcon, TwitterIcon } from "lucide-react";
+import { FacebookIcon, LinkedinIcon, LinkIcon, TwitterIcon } from "lucide-react";
+
+import { JSDOM } from "jsdom";
+import DOMPurify from "dompurify";
+import { ArticleProps } from "@/types/interfaces";
+import Link from "next/link";
 
 type Props = {
     params: {
@@ -10,8 +17,45 @@ type Props = {
     }
 };
 
-const page = ({ params }: Props ) => {
-  const blogArticle = blogPosts.filter(blogPost => blogPost.slug === params.slug)[0];
+const getData = async (url: string) => {
+  const res = await fetch(url, { cache: "no-store" });
+
+  if(!res.ok){
+    return notFound();
+  }
+
+  return res.json();
+};
+
+export async function generateMetadata ({ params }: Props): Promise<Metadata> {
+  
+
+  const blogAPIURL = process.env.NODE_ENV === "development" 
+                      ? "http://localhost:8000/api/blog"
+                      : "https://nate-soul-api.vercel.app/api/blog";
+  const article: ArticleProps = await getData(`${blogAPIURL}/${params.slug}`);
+  return {
+    title: `${article.title}'s Project Case Study`,
+    description: article?.excerpt,
+    keywords: article.tags.map(tag => tag.name),
+    openGraph: {
+      images: [article.featured_img_url]
+    },
+    twitter: {
+      images: [article.featured_img_url,]
+    }
+  }
+}
+
+const page = async ({ params }: Props ) => {
+
+  const window = new JSDOM("").window;
+  const purify = DOMPurify(window);
+
+  const blogAPIURL = process.env.NODE_ENV === "development" 
+                      ? "http://localhost:8000/api/blog"
+                      : "https://nate-soul-api.vercel.app/api/blog";
+  const blogArticle: ArticleProps = await getData(`${blogAPIURL}/${params.slug}`);
 
   if (!blogArticle) {
     return notFound();
@@ -23,7 +67,7 @@ const page = ({ params }: Props ) => {
         <div className="container">
           <figure className="absolute top-0 left-0 w-full h-full">
             <Image 
-              src={blogArticle.featuredImgUrl ? blogArticle.featuredImgUrl : '/assets/images/unavailable.jpg'} 
+              src={blogArticle.featured_img_url || '/assets/images/unavailable.jpg'} 
               alt={blogArticle.title} 
               height={1024} 
               width={1024}
@@ -37,23 +81,32 @@ const page = ({ params }: Props ) => {
                   <p>{blogArticle.excerpt}</p>
                 </hgroup>
                 <Badge variant="destructive" className="text-xs w-max">
-                    {blogArticle.published_date}
+                    {moment(blogArticle.modified_date).format("MMMM Do YYYY")}
                 </Badge>
                 <ul className="flex items-center gap-x-3">
                   <li>
-                    <FacebookIcon size={20}/>
+                    <Link href={`https://www.facebook.com/sharer/sharer.php?u=https://nate-soul.vercel.app/blog/${blogArticle.slug}`} target="_blank">
+                      <FacebookIcon size={20}/>
+                    </Link>
                   </li>
                   <li>
-                    <LinkedinIcon size={20}/>
+                    <Link href={`https://www.linkedin.com/sharing/share-offsite/?url=https://nate-soul.vercel.app/blog/${blogArticle.slug}`} target="_blank">
+                      <LinkedinIcon size={20}/>
+                    </Link>
                   </li>
                   <li>
-                    <TwitterIcon size={20}/>
+                    <Link href={`https://x.com/share?text=${blogArticle.title}&url=https://nate-soul.vercel.app/blog/${blogArticle.slug}&hashtags=${blogArticle?.tags?.map(tag => tag.name)}`} target="_blank">
+                      <TwitterIcon size={20}/>
+                    </Link>
+                  </li>
+                  <li>
+                    <LinkIcon size={20}/>
                   </li>
                 </ul>
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="font-bold text-sm">Tags:</span>
                   {blogArticle.tags.map((tag, tagIndex) => (
-                    <Badge variant="outline" key={tagIndex} className="text-white">{tag}</Badge>
+                    <Badge variant="outline" key={tagIndex} className="text-white">{tag.name}</Badge>
                   ))}
                 </div>
               </div>       
@@ -63,9 +116,7 @@ const page = ({ params }: Props ) => {
       </section>
       <section className="py-12 bg-background text-foreground dark:bg-foreground dark:text-background">
         <div className="container">
-          <div className="w-full smx:w-4/5 md:w-3/4 mx-auto" dangerouslySetInnerHTML={{ __html: blogArticle.content }}>
-
-          </div>
+          <div className="w-full smx:w-4/5 md:w-3/4 mx-auto flex flex-col gap-y-3" dangerouslySetInnerHTML={{ __html: purify.sanitize(blogArticle?.content || "") }}></div>
         </div>
       </section>
     </>

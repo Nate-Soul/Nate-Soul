@@ -22,8 +22,10 @@ async function getData(url: string) {
 
 const AboutSection = async () => {
 
-  const profileData = await getData("https://nate-soul-api.vercel.app/api/accounts/NSL416/");
-  // const profileData = await getData("http://localhost:8000/api/accounts/natesoul/");
+  const baseURL = process.env.NEXT_PUBLIC_ENVIRONMENT === "DEVELOPMENT" 
+                    ? "http://localhost:8000/api/accounts/nate/" : 
+                    "https://nate-soul-api.vercel.app/api/accounts/NSL416/";
+  const profileData = await getData(baseURL);
 
   return (
     <section id="about" className="py-16 bg-background dark:bg-foreground text-foreground dark:text-white">

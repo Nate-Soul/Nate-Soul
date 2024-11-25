@@ -51,7 +51,7 @@ const Projects: React.FC = () => {
   useEffect( () => {
     const fetchData = async () => {
       try {
-        const accountAPIURL = process.env.NEXT_PUBLIC_ENVIRONMENT?.toLowerCase() === "development" 
+        const accountAPIURL = process.env.NODE_ENV === "development" 
         ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_BASEAPIURL}/projects/?page=${pageParam}` 
         : `${process.env.NEXT_PUBLIC_PRODUCTION_BASEAPIURL}/projects/?page=${pageParam}`;
 

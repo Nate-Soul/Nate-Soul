@@ -22,7 +22,7 @@ async function getData(url: string) {
 
 const AboutSection = async () => {
 
-  const baseURL = process.env.NEXT_PUBLIC_ENVIRONMENT?.toLowerCase() === "development" 
+  const baseURL = process.env.NODE_ENV === "development" 
                     ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_BASEAPIURL}/accounts/nate/` 
                     : `${process.env.NEXT_PUBLIC_PRODUCTION_BASEAPIURL}/accounts/NSL416/`;
   const profileData = await getData(baseURL);

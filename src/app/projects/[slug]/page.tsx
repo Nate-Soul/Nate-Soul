@@ -45,7 +45,6 @@ export async function generateMetadata ({ params }: Props): Promise<Metadata> {
   }
 }
 
-
 const ProjectDetail = async ({ params }: Props) => {
 
   const projectDataItem: projectsType   = await getData(`https://nate-soul-api.vercel.app/api/projects/${params.slug}`);

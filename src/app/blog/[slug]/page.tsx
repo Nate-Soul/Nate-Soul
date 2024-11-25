@@ -1,15 +1,19 @@
+
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+
+import "./page.module.css";
+
+import { JSDOM } from "jsdom";
+import DOMPurify from "dompurify";
 import moment from "moment";
 
 import { Badge } from "@/components/ui/badge";
 import { FacebookIcon, LinkedinIcon, LinkIcon, TwitterIcon } from "lucide-react";
 
-import { JSDOM } from "jsdom";
-import DOMPurify from "dompurify";
 import { ArticleProps } from "@/types/interfaces";
-import Link from "next/link";
 
 type Props = {
     params: {
@@ -51,10 +55,11 @@ const page = async ({ params }: Props ) => {
 
   const window = new JSDOM("").window;
   const purify = DOMPurify(window);
-
+  
   const blogAPIURL = process.env.NODE_ENV === "development" 
-                      ? "http://localhost:8000/api/blog"
-                      : "https://nate-soul-api.vercel.app/api/blog";
+                      ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_BASEAPIURL}/blog`
+                      : `${process.env.NEXT_PUBLIC_PRODUCTION_BASEAPIURL}/blog`;
+
   const blogArticle: ArticleProps = await getData(`${blogAPIURL}/${params.slug}`);
 
   if (!blogArticle) {
@@ -116,7 +121,7 @@ const page = async ({ params }: Props ) => {
       </section>
       <section className="py-12 bg-background text-foreground dark:bg-foreground dark:text-background">
         <div className="container">
-          <div className="w-full smx:w-4/5 md:w-3/4 mx-auto flex flex-col gap-y-3" dangerouslySetInnerHTML={{ __html: purify.sanitize(blogArticle?.content || "") }}></div>
+          <div id="blogPostContainer" className="w-full smx:w-4/5 md:w-3/4 mx-auto flex flex-col gap-y-3" dangerouslySetInnerHTML={{ __html: purify.sanitize(blogArticle?.content || "") }}></div>
         </div>
       </section>
     </>

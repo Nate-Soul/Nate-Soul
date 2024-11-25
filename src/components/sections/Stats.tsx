@@ -32,7 +32,6 @@ const Stats = () => {
       icon: <Calendar size={30} />,
     },
 ];
-  
 
   return (
     <div id="stats" className="py-6 bg-background dark:bg-foreground text-foreground dark:text-background">

@@ -6,6 +6,7 @@ import SectionTitle from "@/components/subcomponents/SectionTitle";
 import CTABanner2 from "@/components/sections/CTABanner2";
 import { ArrowUpRight } from "lucide-react";
 import { ArticleProps } from "@/types/interfaces";
+import moment from "moment";
 
 async function getData(url: string) {
     const res = await fetch(url, 
@@ -22,8 +23,8 @@ async function getData(url: string) {
 const page = async () => {
     
   const blogAPIURL = process.env.NODE_ENV === "development" 
-  ? "http://localhost:8000/api/blog"
-  : "https://nate-soul-api.vercel.app/api/blog";
+  ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_BASEAPIURL}/blog`
+  : `${process.env.NEXT_PUBLIC_PRODUCTION_BASEAPIURL}/blog`;
     const getArticles                   = await getData(blogAPIURL);
     const blogPosts: ArticleProps[]     = getArticles.results;
     const featuredArticle: ArticleProps = blogPosts[0];
@@ -58,7 +59,7 @@ const page = async () => {
                         />
                     </div>
                     <div className="basis-full sm:basis-1/2 flex flex-col gap-y-3">
-                        <p className="text-xs text-gray-500">{featuredArticle.published_date}</p>
+                        <p className="text-xs text-gray-500">{moment(featuredArticle.published_date).format("YYYY-MM-DD")}</p>
                         <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">{featuredArticle.title}</h3>
                         <p className="text-sm">{featuredArticle?.excerpt}</p>
                         <Link 

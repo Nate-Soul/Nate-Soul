@@ -51,14 +51,17 @@ const Projects: React.FC = () => {
   useEffect( () => {
     const fetchData = async () => {
       try {
-        const getProjects = await getData(`https://nate-soul-api.vercel.app/api/projects/?page=${pageParam}`);
-        // const getProjects = await getData(`http://127.0.0.1:8000/api/projects/?page=${pageParam}`);
+        const accountAPIURL = process.env.NEXT_PUBLIC_ENVIRONMENT?.toLowerCase() === "development" 
+        ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_BASEAPIURL}/projects/?page=${pageParam}` 
+        : `${process.env.NEXT_PUBLIC_PRODUCTION_BASEAPIURL}/projects/?page=${pageParam}`;
+
+        const getProjects = await getData(accountAPIURL);
         setProjectData(getProjects.results);
         setProjectsCount(getProjects.count);
         setProjectsNextURL(getProjects.next);
         setProjectsPrevURL(getProjects.previous);
       } catch (error) {
-        console.log("ERROR FETCHING DATA: ", error)
+        console.log("ERROR FETCHING DATA: ", error);
       }
     };
     

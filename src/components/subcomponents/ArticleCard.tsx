@@ -28,7 +28,6 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, classes }) => {
         </figure>
         <div className="flex flex-col gap-y-4 p-3">
             <Badge variant="destructive" className="text-xs w-max">
-                {/* {article.published_date} */}
                 {moment(article.modified_date).format("YYYY-MM-DD")}
             </Badge>
             <p className="text-sm">{article?.excerpt}</p>

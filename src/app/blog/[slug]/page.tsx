@@ -57,8 +57,8 @@ const page = async ({ params }: Props ) => {
   const purify = DOMPurify(window);
   
   const blogAPIURL = process.env.NODE_ENV === "development" 
-                      ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_BASEAPIURL}/blog`
-                      : `${process.env.NEXT_PUBLIC_PRODUCTION_BASEAPIURL}/blog`;
+    ? `http://localhost:8000/api/blog`
+    : `https://nate-soul-api.vercel.app/api/blog`;
 
   const blogArticle: ArticleProps = await getData(`${blogAPIURL}/${params.slug}`);
 

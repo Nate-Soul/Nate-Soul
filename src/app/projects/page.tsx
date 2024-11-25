@@ -52,8 +52,8 @@ const Projects: React.FC = () => {
     const fetchData = async () => {
       try {
         const accountAPIURL = process.env.NODE_ENV === "development" 
-        ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_BASEAPIURL}/projects/?page=${pageParam}` 
-        : `${process.env.NEXT_PUBLIC_PRODUCTION_BASEAPIURL}/projects/?page=${pageParam}`;
+        ? `http://localhost:8000/api/projects/?page=${pageParam}` 
+        : `https://nate-soul-api.vercel.app/api/projects/?page=${pageParam}`;
 
         const getProjects = await getData(accountAPIURL);
         setProjectData(getProjects.results);

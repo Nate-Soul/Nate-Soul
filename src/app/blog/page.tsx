@@ -23,8 +23,8 @@ async function getData(url: string) {
 const page = async () => {
     
   const blogAPIURL = process.env.NODE_ENV === "development" 
-  ? `${process.env.NEXT_PUBLIC_DEVELOPMENT_BASEAPIURL}/blog`
-  : `${process.env.NEXT_PUBLIC_PRODUCTION_BASEAPIURL}/blog`;
+                        ? `http://localhost:8000/api/blog`
+                        : `https://nate-soul-api.vercel.app/api/blog`;
     const getArticles                   = await getData(blogAPIURL);
     const blogPosts: ArticleProps[]     = getArticles.results;
     const featuredArticle: ArticleProps = blogPosts[0];
